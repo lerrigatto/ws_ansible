@@ -1,0 +1,15 @@
+---
+base_packages:
+- sudo
+- curl
+- wget
+- aptitude
+- git
+
+debian_release: "buster"
+username: "elacava"
+ssh_key_name: "id_ed25519"
+
+# assets
+assets_bg_path: "/usr/share/images/backgrounds"
+assets_bg_parmitano_url: "https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2013/07/columbus_is_visible_in_the_reflection/12941691-4-eng-GB/Columbus_is_visible_in_the_reflection.jpg"
