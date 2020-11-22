@@ -1,5 +1,4 @@
 ---
 - include_tasks: packages.yml
 - include_tasks: secrets.yml
-- include_tasks: assets.yml
 - include_tasks: yadm.yml
