@@ -1,0 +1,14 @@
+---
+- name: "Add backports repository to apt"
+  apt_repository:
+    repo: deb http://deb.debian.org/debian {{ debian_release }}-backports main contrib non-free
+    state: present
+
+- name: "install base packages"
+  apt:
+    pkg: "{{ item }}"
+    state: present
+    install_recommends: no
+    update_cache: yes
+  loop: "{{ base_packages }}"
+  become: yes

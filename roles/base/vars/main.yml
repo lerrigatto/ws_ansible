@@ -1,0 +1,11 @@
+---
+base_packages:
+- sudo
+- curl
+- wget
+- aptitude
+- git
+
+debian_release: "buster"
+username: "elacava"
+ssh_key_name: "id_ed25519"

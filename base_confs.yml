@@ -1,0 +1,8 @@
+---
+# Playbook: Base config
+# This will configure the base system packages, assets and secrets
+
+- hosts: workstations
+  roles:
+    - base
+    - desktop
