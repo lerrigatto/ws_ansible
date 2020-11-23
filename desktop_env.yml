@@ -6,4 +6,5 @@
 
 - hosts: workstations
   roles:
-    - desktop
+    - role: lightdm
+      tags: lightdm

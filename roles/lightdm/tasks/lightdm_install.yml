@@ -1,0 +1,7 @@
+---
+name: "Install lightdm"
+apt:
+  pkg:
+    - lightdm
+  state: present
+become: true

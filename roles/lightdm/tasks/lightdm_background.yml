@@ -11,7 +11,7 @@
   get_url:
     url: "{{ lightdm_bg_parmitano_url }}"
     dest: "{{ lightdm_bg_path }}/parmitano.jpg"
-    checksum: "{{ lightdm_bg_parmitano_sha246 }}"
+    checksum: "{{ lightdm_bg_parmitano_sha256 }}"
   become: yes
 
 - name: "Set lightdm background"
