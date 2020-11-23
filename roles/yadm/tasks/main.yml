@@ -1,0 +1,16 @@
+---
+- name: "Install yadm"
+  apt:
+    pkg:
+      - yadm
+    state: present
+    install_recommends: no
+  become: yes
+
+- name: "Yadm clone"
+  command: "yadm clone -f {{ yadm_repo_url }}"
+
+- name: "Yadm hard reset"
+  command: "yadm reset --hard origin/{{ yadm_remote_branch }}"
+  register: yadm_reset_output
+  failed_when: "yadm_reset_output.stderr"

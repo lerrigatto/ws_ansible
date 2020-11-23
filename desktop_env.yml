@@ -3,3 +3,7 @@
 # This will configure X, i3 and all the apps necessary
 
 - import_playbook: base_confs.yml
+
+- hosts: workstations
+  roles:
+    - desktop

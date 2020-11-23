@@ -4,5 +4,7 @@
 
 - hosts: workstations
   roles:
-    - base
-    - desktop
+    - role: base
+      tags: base
+    - role: yadm
+      tags: yadm
