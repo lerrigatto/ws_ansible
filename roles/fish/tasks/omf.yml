@@ -1,0 +1,24 @@
+---
+# Download and install oh-my-fish 
+
+- name: "Create temporary installer file"
+  tempfile:
+    state: file
+    suffix: temp
+  register: omf_tmp_installer
+
+- name: "Download installer"
+  get_url:
+    url: "{{ omf_url }}"
+    dest: "{{ omf_tmp_installer.path }}"
+    checksum: "{{ omf_sha256 }}"
+  become: yes
+
+- name: "Install omf"
+  command: "fish {{ omf_tmp_installer.path }} --noninteractive --verbose --yes"
+
+- name: "Delete temporary installer file"
+  file:
+    path: "{{ omf_tmp_installer.path }}"
+    state: absent
+  when: omf_tmp_installer.path is defined

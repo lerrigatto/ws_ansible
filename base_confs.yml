@@ -6,5 +6,7 @@
   roles:
     - role: base
       tags: base
+    - role: fish
+      tags: fish
     - role: yadm
       tags: yadm

@@ -1,0 +1,8 @@
+---
+- name: "Install fish shell"
+  apt:
+    pkg:
+      - fish
+      - fish-common
+    state: present
+  become: yes
