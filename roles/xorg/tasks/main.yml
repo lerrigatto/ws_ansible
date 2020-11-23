@@ -1,0 +1,7 @@
+---
+- name: "Install xorg"
+  apt:
+    pkg:
+      - xserver-xorg
+    state: present
+  become: yes

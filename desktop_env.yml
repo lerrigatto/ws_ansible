@@ -6,5 +6,7 @@
 
 - hosts: workstations
   roles:
+    - role: xorg
+      tags: xorg
     - role: lightdm
       tags: lightdm
