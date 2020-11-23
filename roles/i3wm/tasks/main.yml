@@ -1,0 +1,10 @@
+---
+- name: "Install i3wm packages"
+  apt:
+    pkg:
+      - i3-wm
+      - i3lock
+      - i3lock-fancy
+      - i3status
+    state: present
+  become: yes

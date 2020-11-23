@@ -10,3 +10,5 @@
       tags: xorg
     - role: lightdm
       tags: lightdm
+    - role: i3wm
+      tags: i3wm
