@@ -1,0 +1,4 @@
+---
+lightdm_bg_path: "/usr/share/images/backgrounds"
+lightdm_bg_parmitano_url: "https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2013/07/columbus_is_visible_in_the_reflection/12941691-4-eng-GB/Columbus_is_visible_in_the_reflection.jpg"
+lightdm_bg_parmitano_sha256: "sha256:3ab0a44b0856f4966eba576931aa455889c7214fbc3fd5a214ac2c8eda035758"

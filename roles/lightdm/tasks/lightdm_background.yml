@@ -3,15 +3,15 @@
 
 - name: "Create backgrounds directory"
   file:
-    path: "{{ assets_bg_path }}"
+    path: "{{ lightdm_bg_path }}"
     state: directory
   become: yes
 
 - name: "Download background"
   get_url:
-    url: "{{ assets_bg_parmitano_url }}"
-    dest: "{{ assets_bg_path }}/parmitano.jpg"
-    checksum: sha256:3ab0a44b0856f4966eba576931aa455889c7214fbc3fd5a214ac2c8eda035758
+    url: "{{ lightdm_bg_parmitano_url }}"
+    dest: "{{ lightdm_bg_path }}/parmitano.jpg"
+    checksum: "{{ lightdm_bg_parmitano_sha246 }}"
   become: yes
 
 - name: "Set lightdm background"
