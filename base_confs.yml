@@ -10,3 +10,8 @@
       tags: fish
     - role: yadm
       tags: yadm
+
+- hosts: POLOBEAR-DEB
+  roles:
+    - role: firmware
+      tags: base,firmware

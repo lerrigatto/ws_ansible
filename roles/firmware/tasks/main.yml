@@ -1,0 +1,20 @@
+---
+# This is a host-aware role. Each firmware is installed only on the listed, specific, hosts.
+
+- name: "Install available firmware packages"
+  apt:
+    pkg:
+      - firmware-linux-free
+      - firmware-misc-nonfree
+      - firmware-intel-sound
+      - intel-microcode
+  become: yes
+  when: "inventory_hostname == 'POLOBEAR-DEB'"
+  
+- name: "Install ti_3410.fw"
+  copy:
+    src: "ti_3410.fw"
+    dest: "/lib/firmware"
+  become: true
+  when: "inventory_hostname == 'POLOBEAR-DEB'"
+
