@@ -6,8 +6,8 @@
 
 - hosts: workstations
   roles:
-    - role: xorg
-      tags: xorg
+    - role: X11
+      tags: X11
     - role: lightdm
       tags: lightdm
     - role: i3wm
