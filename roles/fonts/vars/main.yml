@@ -13,3 +13,6 @@ fonts_apt_basic_list:
 
 fonts_apt_extended_list:
   - fonts-font-awesome
+  - fonts-materialdesignicons-webfont
+  - fonts-noto-color-emoji
+  - fonts-powerline
