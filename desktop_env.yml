@@ -22,3 +22,7 @@
       tags: 
         - apps
         - slack
+    - role: spotify
+      tags: 
+        - apps
+        - spotify
