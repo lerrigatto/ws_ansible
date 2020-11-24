@@ -1,0 +1,12 @@
+---
+- name: "Install pulseaudio"
+  apt:
+    pkg:
+      - pulseaudio
+    state: present
+  become: true
+
+- name: "Ensure the config folder is clean"
+  file:
+    path: "$HOME/.config/pulse"
+    state: absent
