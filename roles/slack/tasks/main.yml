@@ -1,0 +1,24 @@
+---
+- name: "Create tmp file"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: slack_tmp
+
+- name: "Download slack"
+  get_url: 
+    url: "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.11.1-amd64.deb"
+    dest: "{{ slack_tmp.path }}/slack.deb"
+    checksum: "sha256:cf549741b6477cca74be04e56b96a8a9bfb02452ebd641d1c0aa286afb7883e4"
+
+- name: "Install slack"
+  apt:
+    deb: "{{ slack_tmp.path }}/slack.deb"
+    state: present
+  become: true
+
+- name: "Cleanup"
+  file:
+    path: "{{ slack_tmp }}"
+    state: absent
+

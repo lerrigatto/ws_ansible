@@ -18,3 +18,7 @@
       tags: 
         - apps
         - firefox
+    - role: slack
+      tags: 
+        - apps
+        - slack
