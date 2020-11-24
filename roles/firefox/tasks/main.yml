@@ -7,14 +7,6 @@
     suffix: temp
   register: firefox_tmp_folder
 
-- name: "Create destination folder"
-  file:
-    path: "{{ firefox_destination_folder }}"
-    state: directory
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
-  become: yes
-
 - name: "Download firefox"
   get_url:
     url: "{{ firefox_url }}"
@@ -24,13 +16,22 @@
 - name: "Unpack firefox"
   unarchive:
     src: "{{ firefox_tmp_folder.path }}/{{ firefox_filename }}"
-    dest: "{{ firefox_destination_folder }}"
+    dest: "/opt/"
     remote_src: yes
+  become: yes
 
 - name: "Add desktop file"
   template:
     src: firefox.desktop.j2
     dest: "{{ firefox_desktop_path }}/firefox.desktop"
+  become: yes
+
+- name: "Add firefox as x-www-browser"
+  command: "update-alternatives --install /usr/bin/x-www-browser x-www-browser /opt/firefox/firefox 200"
+  become: yes
+
+- name: "Add firefox as default browser"
+  command: "update-alternatives --set x-www-browser /opt/firefox/firefox"
   become: yes
 
 - name: "Cleanup"
