@@ -9,6 +9,5 @@
     pkg: "{{ item }}"
     state: present
     install_recommends: no
-    update_cache: yes
   loop: "{{ base_packages }}"
   become: yes
