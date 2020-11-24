@@ -1,8 +1,8 @@
 # Inventory file for all workstations
 all:
   hosts:
-    POLOBEAR-DEB:
   children:
     workstations:
       hosts:
         POLOBEAR-DEB:
+        pinkladydeb:

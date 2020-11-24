@@ -11,6 +11,8 @@
   file:
     path: "{{ firefox_destination_folder }}"
     state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
   become: yes
 
 - name: "Download firefox"
@@ -28,7 +30,7 @@
 - name: "Add desktop file"
   template:
     src: firefox.desktop.j2
-    dest: "{{ firefox_desktop_path }}"
+    dest: "{{ firefox_desktop_path }}/firefox.desktop"
   become: yes
 
 - name: "Cleanup"
