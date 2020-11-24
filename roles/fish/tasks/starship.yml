@@ -1,0 +1,31 @@
+---
+# Download and install starship
+
+- name: "Create temporary installer file"
+  tempfile:
+    state: file
+    suffix: temp
+  register: starship_tmp_installer
+
+- name: "Download installer"
+  get_url:
+    url: "{{ starship_url }}"
+    dest: "{{ starship_tmp_installer.path }}"
+    checksum: "{{ starship_sha256 }}"
+    mode: "a+x"
+  become: yes
+
+- name: "Install starship"
+  command: "{{ starship_tmp_installer.path }} --verbose --yes"
+
+- name: "Ensure fish is loading starship"
+  lineinfile:
+    path: "$HOME/.config/fish/config.fish"
+    regexp: '^starship init fish'
+    line: "starship init fish | source"
+
+- name: "Delete temporary installer file"
+  file:
+    path: "{{ starship_tmp_installer.path }}"
+    state: absent
+  when: starship_tmp_installer.path is defined
