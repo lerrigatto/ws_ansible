@@ -12,3 +12,5 @@
       tags: lightdm
     - role: i3wm
       tags: i3wm
+    - role: fonts
+      tags: fonts

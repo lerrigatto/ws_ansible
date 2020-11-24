@@ -1,0 +1,15 @@
+---
+fonts_apt_basic_list:
+  - fontconfig
+  - fontconfig-config
+  - fonts-dejavu-core
+  - fonts-quicksand
+  - xfonts-100dpi
+  - xfonts-75dpi
+  - xfonts-base
+  - xfonts-encodings
+  - xfonts-scalable
+  - xfonts-utils
+
+fonts_apt_extended_list:
+  - fonts-font-awesome

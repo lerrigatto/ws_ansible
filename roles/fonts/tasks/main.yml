@@ -1,0 +1,22 @@
+---
+- name: "Install the basic font packages"
+  apt:
+    pkg: "{{ item }}"
+    state: present
+    install_recommends: no
+  loop: "{{ fonts_apt_basic_list }}"
+  become: yes
+  tags:
+    - fonts
+    - fonts:base
+
+- name: "Install the extended font packages"
+  apt:
+    pkg: "{{ item }}"
+    state: present
+    install_recommends: no
+  loop: "{{ fonts_apt_extended_list }}"
+  become: yes
+  tags:
+    - fonts
+    - fonts:extended
