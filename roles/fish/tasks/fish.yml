@@ -1,0 +1,23 @@
+---
+- name: "Add fish repo key to apt"
+  apt_key:
+    url: "https://download.opensuse.org/repositories/shells:fish:release:3/Debian_10/Release.key"
+  become: yes
+
+- name: "Add fish repository to apt"
+  apt_repository:
+    repo: "deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_10/ /"
+    state: present
+  become: yes
+
+- name: "Install fish"
+  apt:
+    pkg: fish
+    state: present
+  become: yes
+
+- name: "Set fish as default shell"
+  user:
+    name: "{{ ansible_user_id }}"
+    shell: /usr/bin/fish
+  become: yes
