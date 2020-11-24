@@ -1,11 +1,13 @@
 ---
 # Playbook: Base config
-# This will configure the base system packages, assets and secrets
+# This will configure the base system packages, assets and keys
 
 - hosts: workstations
   roles:
     - role: base
       tags: base
+    - role: keys
+      tags: keys
     - role: fish
       tags: fish
     - role: yadm

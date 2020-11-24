@@ -1,0 +1,30 @@
+---
+# Install SSH packages, confs and ensure keys are present and working
+
+- name: "Install ssh client"
+  apt:
+    pkg:
+      - openssh-client
+    state: present
+    install_recommends: no
+  become: yes
+
+- name: "Configure ssh client"
+  template:
+    src: ssh_config.j2
+    dest: "{{ keys_ssh_config_path }}"
+    mode: 0644
+  become: yes
+
+- name: "Ensure ssh private key is present"
+  stat:
+    path: "{{ keys_ssh_private_path }}"
+
+- name: "Ensure ssh public key is present"
+  stat:
+    path: "{{ keys_ssh_public_path }}"
+
+- name: "Test github.com connection"
+  command: "ssh -T git@github.com"
+  register: ssh_github_check
+  failed_when: "'successfully authenticated' not in ssh_github_check.stderr"

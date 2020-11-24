@@ -1,0 +1,14 @@
+keys_ssh_name: id_ed25519
+keys_ssh_private_path: "$HOME/.ssh/{{ keys_ssh_name }}"
+keys_ssh_public_path: "$HOME/.ssh/{{ keys_ssh_name }}.pub"
+
+keys_ssh_config_path: "/etc/ssh/ssh_config"
+keys_ssh_config_hosts:
+  - host: "*"
+    ForwardAgent: no
+    ForwardX11: no
+    ForwardX11Trusted: no
+    Tunnel: no
+    GSSAPIAuthentication: no
+    HostbasedAuthentication: no
+    StrictHostKeyChecking: ask

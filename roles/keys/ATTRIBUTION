@@ -1,0 +1,1 @@
+Some part of the ssh client config are heavily inspired from https://github.com/whiskerlabs/ansible-ssh-config/commit/2439c0bd9742e6d86220193e3299c858f215f514 under MIT licence.
