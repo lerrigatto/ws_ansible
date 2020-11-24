@@ -1,0 +1,6 @@
+---
+firefox_destination_folder: "/opt/firefox"
+firefox_filename: "firefox-83.0.tar.bz2"
+firefox_url: "https://ftp.mozilla.org/pub/firefox/releases/83.0/linux-x86_64/en-US/{{ firefox_filename }}"
+firefox_sha256: "sha256:93ff827fdcba92ddb71851c46ac8192a727ed61402e896c6262943e382f92412"
+firefox_desktop_path: "/usr/share/applications"

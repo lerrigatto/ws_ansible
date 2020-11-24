@@ -14,3 +14,7 @@
       tags: i3wm
     - role: fonts
       tags: fonts
+    - role: firefox
+      tags: 
+        - apps
+        - firefox

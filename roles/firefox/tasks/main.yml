@@ -1,0 +1,38 @@
+---
+# Install firefox from tarball
+
+- name: "Create tmp folder"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: firefox_tmp_folder
+
+- name: "Create destination folder"
+  file:
+    path: "{{ firefox_destination_folder }}"
+    state: directory
+  become: yes
+
+- name: "Download firefox"
+  get_url:
+    url: "{{ firefox_url }}"
+    dest: "{{ firefox_tmp_folder.path }}/{{ firefox_filename }}"
+    checksum: "{{ firefox_sha256 }}"
+
+- name: "Unpack firefox"
+  unarchive:
+    src: "{{ firefox_tmp_folder.path }}/{{ firefox_filename }}"
+    dest: "{{ firefox_destination_folder }}"
+    remote_src: yes
+
+- name: "Add desktop file"
+  template:
+    src: firefox.desktop.j2
+    dest: "{{ firefox_desktop_path }}"
+  become: yes
+
+- name: "Cleanup"
+  file:
+    path: "{{ firefox_tmp_folder.path }}"
+    state: absent
+  when: firefox_tmp_folder.path is defined
