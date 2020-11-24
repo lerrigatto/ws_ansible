@@ -1,0 +1,6 @@
+---
+- name: "Install gpg agent"
+  apt:
+    pkg: gpg-agent
+    state: present
+  become: yes

@@ -2,3 +2,4 @@
 # Setup ssh and pgp keys. You need to provide those keys yourself
 
 - include_tasks: ssh.yml
+- include_tasks: gpg.yml
