@@ -28,3 +28,7 @@
       tags: 
         - apps
         - spotify
+    - role: packer
+      tags:
+        - apps
+        - packer
