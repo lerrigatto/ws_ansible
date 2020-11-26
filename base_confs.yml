@@ -8,10 +8,10 @@
       tags: base
     - role: keys
       tags: keys
-    - role: fish
-      tags: fish
     - role: yadm
       tags: yadm
+    - role: fish
+      tags: fish
 
 - hosts: POLOBEAR-DEB
   roles:
