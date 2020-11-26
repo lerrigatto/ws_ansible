@@ -3,5 +3,6 @@ name: "Install lightdm"
 apt:
   pkg:
     - lightdm
+    - lightdm-gtk-greeter
   state: present
 become: true
