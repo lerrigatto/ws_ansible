@@ -5,4 +5,3 @@ all:
     workstations:
       hosts:
         POLOBEAR-DEB:
-        pinkladydeb:

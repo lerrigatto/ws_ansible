@@ -32,3 +32,8 @@
       tags:
         - apps
         - packer
+    - role: elixir
+      tags:
+        - apps
+        - dev
+        - elixir
