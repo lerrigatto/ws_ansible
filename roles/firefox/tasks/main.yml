@@ -34,6 +34,13 @@
   command: "update-alternatives --set x-www-browser /opt/firefox/firefox"
   become: yes
 
+- name: "Add firefox to path"
+  file:
+    src: /opt/firefox/firefox
+    dest: /usr/local/bin/firefox
+    state: link
+  become: yes
+
 - name: "Cleanup"
   file:
     path: "{{ firefox_tmp_folder.path }}"
