@@ -37,3 +37,7 @@
         - apps
         - dev
         - elixir
+    - role: docker
+      tags:
+        - docker
+        - dev
