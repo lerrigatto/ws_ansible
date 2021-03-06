@@ -3,6 +3,7 @@
 # This will configure the base system packages, assets and keys
 
 - hosts: workstations
+  ignore_unreachable: yes
   roles:
     - role: base
       tags: base
@@ -12,6 +13,8 @@
       tags: yadm
     - role: fish
       tags: fish
+    - role: sshd
+      tags: sshd
 
 - hosts: POLOBEAR-DEB
   roles:

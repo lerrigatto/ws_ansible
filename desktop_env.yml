@@ -5,6 +5,7 @@
 - import_playbook: base_confs.yml
 
 - hosts: workstations
+  ignore_unreachable: yes
   roles:
     - role: X11
       tags: X11

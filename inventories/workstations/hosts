@@ -5,3 +5,8 @@ all:
     workstations:
       hosts:
         POLOBEAR-DEB:
+          ansible_host: 192.168.1.52
+          ansible_user: elacava
+# Comment out because it is sooooooo slow to run with all the unreachable failure
+#        PINKLADY-DEB:
+#          ansible_host: 192.168.1.177
