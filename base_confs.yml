@@ -2,7 +2,7 @@
 # Playbook: Base config
 # This will configure the base system packages, assets and keys
 
-- hosts: workstations
+- hosts: all 
   ignore_unreachable: yes
   roles:
     - role: base
