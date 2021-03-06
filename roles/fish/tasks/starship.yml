@@ -17,6 +17,7 @@
 
 - name: "Install starship"
   command: "{{ starship_tmp_installer.path }} --verbose --yes"
+  become: yes
 
 - name: "Ensure fish is loading starship"
   lineinfile:
