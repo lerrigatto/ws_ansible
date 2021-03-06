@@ -1,0 +1,10 @@
+# Inventory file for all workstations
+all:
+  hosts:
+  children:
+    servers:
+      hosts:
+        bacilla:
+          ansible_host: 192.168.1.100
+          ansible_port: 4022
+          ansible_user: elacava

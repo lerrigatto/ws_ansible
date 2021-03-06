@@ -1,0 +1,21 @@
+---
+# Playbook: server environment
+# This will configure sshd, wireguard 
+
+- import_playbook: base_confs.yml
+
+- hosts: servers
+  ignore_unreachable: no
+  roles:
+#    - role: wireguard
+#      tags:
+#        - wireguard
+#        - network
+    - role: packer
+      tags:
+        - apps
+        - packer
+    - role: docker
+      tags:
+        - docker
+        - dev
