@@ -1,0 +1,25 @@
+---
+- name: "Install wireguard"
+  apt:
+    pkg: wireguard
+    state: present
+    install_recommends: no
+  become: yes
+
+- name: "Create wg0 interface"
+  command: "ip link add dev wg0 type wireguard"
+  register: ip_link
+  become: yes
+  ignore_errors: yes
+
+- fail: msg = "{{ ip_link.stderr }}"
+  when: "ip_link.stderr != '' and 'RTNETLINK answers: File exists' not in ip_link.stderr"
+  
+- name: "Assign ipv4 subnet to wg0"
+  command: "ip address add dev wg0 192.168.2.1/24"
+  register: ip_addr
+  become: yes
+  ignore_errors: yes
+
+- fail: msg = "{{ ip_addr.stderr }}"
+  when: "ip_addr.stderr != '' and 'RTNETLINK answers: File exists' not in ip_addr.stderr"
