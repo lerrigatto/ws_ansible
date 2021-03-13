@@ -23,3 +23,13 @@
 
 - fail: msg = "{{ ip_addr.stderr }}"
   when: "ip_addr.stderr != '' and 'RTNETLINK answers: File exists' not in ip_addr.stderr"
+
+# Copy wireguard conf file!
+
+- name: "Enable wireguard service"
+  command: "systemctl enable wg-quick@wg0.service"
+  become: yes
+
+- name: "Start wireguard service"
+  command: "systemctl start wg-quick@wg0.service"
+  become: yes
