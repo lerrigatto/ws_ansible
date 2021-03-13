@@ -1,0 +1,21 @@
+---
+- name: "Ensure creds file is present"
+  stat:
+    path: /root/ddns.creds
+  register: stat_result
+  become: true
+
+- name: "Install ddns-update script"
+  copy:
+    src: "ddns-update.sh"
+    dest: "/root"
+    mode: "a+x"
+  become: true
+
+- name: "ddns-update job"
+  ansible.builtin.cron:
+    name: "ddns-update"
+    minute: "16"
+    hour: "*"
+    job: "/root/ddns-update.sh > /dev/null"
+  become: true
