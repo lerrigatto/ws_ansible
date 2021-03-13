@@ -1,6 +1,9 @@
 # TODO list
-- handle ssh-agent
-  - fix keys and yadm roles, that require ssh-agent to connect to github; the server role is broken because of this
+- add samba confs for servers
+- handle secrets
+  - ssh keys
+  - google-ddns creds (servers)
+  - wireguard confs and keys (servers)
 - handle requirements (root)
   - curl, unzip, python3-distutils, python3-apt, sudo
   - usermod -aG sudo elacava
