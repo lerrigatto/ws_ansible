@@ -3,6 +3,7 @@
 # This will configure sshd, wireguard 
 
 - import_playbook: base_confs.yml
+- import_playbook: .k3s/site.yml
 
 - hosts: servers
   ignore_unreachable: no
@@ -20,7 +21,3 @@
       tags:
         - apps
         - packer
-    - role: docker
-      tags:
-        - docker
-        - dev
