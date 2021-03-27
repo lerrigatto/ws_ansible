@@ -1,0 +1,28 @@
+---
+# Download and install kubens
+
+- name: "Create temporary installer file"
+  tempfile:
+    state: file
+    suffix: temp
+  register: kubens_tmp_installer
+
+- name: "Download installer"
+  get_url:
+    url: "{{ kubens_url }}"
+    dest: "{{ kubens_tmp_installer.path }}"
+    checksum: "{{ kubens_sha256 }}"
+  become: yes
+
+- name: "Install kubens"
+  copy:
+    src: "{{ kubens_tmp_installer.path }}"
+    dest: "{{ kubens_dest_path }}/kubens"
+    mode: "a+x"
+  become: yes
+
+- name: "Delete temporary installer file"
+  file:
+    path: "{{ kubens_tmp_installer.path }}"
+    state: absent
+  when: kubens_tmp_installer.path is defined

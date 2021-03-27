@@ -42,3 +42,7 @@
       tags:
         - docker
         - dev
+    - role: k8s-utils
+      tags:
+        - k8s
+        - dev

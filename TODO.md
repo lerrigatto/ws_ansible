@@ -1,4 +1,5 @@
 # TODO list
+- add client wireguard conf
 - add samba confs for servers
 - handle secrets
   - ssh keys

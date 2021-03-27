@@ -1,0 +1,5 @@
+---
+
+kubens_url: "https://raw.githubusercontent.com/ahmetb/kubectx/3504e66edbe51e1bcbb57cd02b2cf6972e9d501d/kubens"
+kubens_sha256: "sha256:509c97c0882e688ae8fad8aa13524cc7c003e4883db447a905bdb47d64c13bdc"
+kubens_dest_path: "/usr/local/bin"
