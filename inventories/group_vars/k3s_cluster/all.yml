@@ -1,6 +1,6 @@
 ---
 k3s_version: v1.19.8+k3s1
 systemd_dir: /etc/systemd/system
-master_ip: "{{ hostvars[groups['master'][0]]['ansible_host'] | default(groups['master'][0]) }}"
-extra_server_args: ""
+master_ip: "192.168.2.1"
+extra_server_args: "--bind-address 192.168.2.1"
 extra_agent_args: ""

@@ -1,0 +1,4 @@
+---
+# Playbook: server environment
+
+- import_playbook: .k3s/site.yml
