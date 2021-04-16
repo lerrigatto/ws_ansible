@@ -6,6 +6,7 @@ base_packages:
 - aptitude
 - git
 - python3-venv
+- python3-dev
 
 debian_release: "buster"
 username: "elacava"
