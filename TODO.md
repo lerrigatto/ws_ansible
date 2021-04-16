@@ -10,3 +10,5 @@
   - usermod -aG sudo elacava
 - fix vim configs on servers
 - fix firefox re-install
+- fix zoom install (add xdg-dbus-proxy and xdg-user-dirs-gtk)
+- install fluxcd on workstations
