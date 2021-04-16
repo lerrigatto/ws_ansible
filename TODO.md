@@ -8,7 +8,5 @@
 - handle requirements (root)
   - curl, unzip, python3-distutils, python3-apt, sudo
   - usermod -aG sudo elacava
-- fix vim configs on servers
-- fix firefox re-install
-- fix zoom install (add xdg-dbus-proxy and xdg-user-dirs-gtk)
+- fix vim configs on servers (is it yadm?)
 - install fluxcd on workstations
