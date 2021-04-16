@@ -1,0 +1,24 @@
+---
+# Download and install poetry 
+
+- name: "Create temporary installer file"
+  tempfile:
+    state: file
+    suffix: temp
+  register: poetry_tmp_installer
+
+- name: "Download installer"
+  get_url:
+    url: "{{ poetry_url }}"
+    dest: "{{ poetry_tmp_installer.path }}"
+    checksum: "{{ poetry_sha256 }}"
+  become: yes
+
+- name: "Install poetry"
+  command: "python3 {{ poetry_tmp_installer.path }} --force --yes"
+
+- name: "Delete temporary installer file"
+  file:
+    path: "{{ poetry_tmp_installer.path }}"
+    state: absent
+  when: poetry_tmp_installer.path is defined

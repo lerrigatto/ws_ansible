@@ -37,9 +37,12 @@
       tags:
         - apps
         - packer
+    - role: python
+      tags:
+        - python
+        - dev
     - role: elixir
       tags:
-        - apps
         - dev
         - elixir
     - role: docker
