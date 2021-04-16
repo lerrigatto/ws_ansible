@@ -20,3 +20,12 @@
   tags:
     - fonts
     - fonts:extended
+
+- name: "Enable bitmaps fonts"
+  file:
+    path: "/etc/fonts/conf.d/70-no-bitmaps.conf"
+    state: absent
+
+- name: "Rebuild font cache"
+  command: "fc-cache -f -v"
+  become: yes
