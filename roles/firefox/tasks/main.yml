@@ -1,6 +1,16 @@
 ---
 # Install firefox from tarball
 
+- name: "Check current firefox version"
+  command: "firefox --version"
+  register: current_firefox
+  ignore_errors: yes
+
+- name: "Avoid downgrading"
+  fail:
+    msg: "You are trying to install a different version of firefox from {{ current_firefox.stdout }} to {{ firefox_version_string }}. This cannot happen. Please update the role with the same version or uninstall firefox"
+  when: "current_firefox.stdout is defined and firefox_version_string != current_firefox.stdout"
+
 - name: "Create tmp folder"
   tempfile:
     state: directory

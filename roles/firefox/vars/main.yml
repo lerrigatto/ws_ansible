@@ -1,5 +1,6 @@
 ---
 firefox_filename: "firefox-85.0.tar.bz2"
+firefox_version_string: "Mozilla Firefox 85.0"
 firefox_url: "https://ftp.mozilla.org/pub/firefox/releases/85.0/linux-x86_64/en-US/{{ firefox_filename }}"
 firefox_key_url: "https://ftp.mozilla.org/pub/firefox/releases/85.0/linux-x86_64/en-US/{{ firefox_filename }}.asc"
 firefox_desktop_path: "/usr/share/applications"
