@@ -29,6 +29,10 @@
       tags: 
         - apps
         - spotify
+    - role: zoom
+      tags:
+        - apps
+        - zoom
     - role: packer
       tags:
         - apps
