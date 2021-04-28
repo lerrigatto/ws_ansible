@@ -10,5 +10,7 @@
       - sakura
       - desktop-profiles
       - j4-dmenu-desktop
+      - libnotify-bin
+      - dunst
     state: present
   become: yes
