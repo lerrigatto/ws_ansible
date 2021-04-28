@@ -16,3 +16,6 @@ fonts_apt_extended_list:
   - fonts-materialdesignicons-webfont
   - fonts-noto-color-emoji
   - fonts-powerline
+  - xfonts-unifont
+  - unifont
+  - ttf-unifont
