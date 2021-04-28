@@ -1,0 +1,31 @@
+---
+- name: "Install the basic font packages"
+  apt:
+    pkg: "{{ item }}"
+    state: present
+    install_recommends: no
+  loop: "{{ fonts_apt_basic_list }}"
+  become: yes
+  tags:
+    - fonts
+    - fonts:base
+
+- name: "Install the extended font packages"
+  apt:
+    pkg: "{{ item }}"
+    state: present
+    install_recommends: no
+  loop: "{{ fonts_apt_extended_list }}"
+  become: yes
+  tags:
+    - fonts
+    - fonts:extended
+
+- name: "Enable bitmaps fonts"
+  file:
+    path: "/etc/fonts/conf.d/70-no-bitmaps.conf"
+    state: absent
+
+- name: "Rebuild font cache"
+  command: "fc-cache -f -v"
+  become: yes

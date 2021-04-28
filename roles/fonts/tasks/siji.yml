@@ -1,0 +1,19 @@
+---
+# Download and install siji 
+
+- name: "Copy otb font"
+  copy:
+    src: "siji.otb"
+    dest: "/usr/local/share/fonts"
+    mode: '0644'
+  become: true
+
+- name: "Copy ttf font"
+  copy:
+    src: "siji.ttf"
+    dest: "/usr/local/share/fonts"
+    mode: '0644'
+  become: true
+
+- name: "Rebuild font cache"
+  command: fc-cache

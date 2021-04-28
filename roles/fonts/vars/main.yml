@@ -19,3 +19,6 @@ fonts_apt_extended_list:
   - xfonts-unifont
   - unifont
   - ttf-unifont
+
+siji_url: "https://github.com/stark/siji/archive/refs/heads/master.zip"
+siji_sha256: "sha256:faee26dcbdd81544425fb2c0fdaf75b79b33d882d46a0cb21250dbf9baf2302d"
