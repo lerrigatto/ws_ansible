@@ -1,0 +1,9 @@
+---
+- name: "Download docker-compose"
+  get_url:
+    url: "{{ compose_url }}"
+    dest: "{{ compose_path }}"
+    checksum: "{{ compose_sha256 }}"
+    mode: "+x"
+  become: yes
+

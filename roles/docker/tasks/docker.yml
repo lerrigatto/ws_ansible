@@ -1,0 +1,22 @@
+---
+- name: "Add docker repo key to apt"
+  apt_key:
+    url: "https://download.docker.com/linux/debian/gpg"
+  become: yes
+
+- name: "Add docker repository to apt"
+  apt_repository:
+    repo: "deb https://download.docker.com/linux/debian buster stable"
+    state: present
+  become: yes
+
+- name: "Install docker"
+  apt:
+    pkg: 
+      - docker-ce 
+      - docker-ce-cli 
+      - containerd.io 
+    state: present
+    install_recommends: no
+    update_cache: yes
+  become: yes
