@@ -6,6 +6,7 @@
 - The ssh key you provide must be able to connect to github.com
 - You need to copy the public key in the machines with:
   ``` ssh-copy-id -i local-pub-key-path ip-address-of-host ```
+- Workstations need to have the ssh key in the authorized_hosts
 
 ## Attributions
 Where necessary, you will find an ATTRIBUTION file detailing the source and licences of other people code.

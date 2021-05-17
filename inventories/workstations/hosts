@@ -4,9 +4,9 @@ all:
   children:
     workstations:
       hosts:
-        POLOBEAR-DEB:
+        polobeardeb:
           ansible_host: 192.168.1.52
           ansible_user: elacava
-# Comment out because it is sooooooo slow to run with all the unreachable failure
-#        PINKLADY-DEB:
-#          ansible_host: 192.168.1.177
+        pinkladydeb:
+          ansible_host: 192.168.1.23
+          ansible_user: elacava

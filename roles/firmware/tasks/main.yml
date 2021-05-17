@@ -9,12 +9,12 @@
       - firmware-intel-sound
       - intel-microcode
   become: yes
-  when: "inventory_hostname == 'POLOBEAR-DEB'"
+  when: "inventory_hostname == 'polobeardeb'"
   
 - name: "Install ti_3410.fw"
   copy:
     src: "ti_3410.fw"
     dest: "/lib/firmware"
   become: true
-  when: "inventory_hostname == 'POLOBEAR-DEB'"
+  when: "inventory_hostname == 'polobeardeb'"
 
