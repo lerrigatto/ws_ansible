@@ -25,6 +25,7 @@
   file:
     path: "/etc/fonts/conf.d/70-no-bitmaps.conf"
     state: absent
+  become: yes
 
 - name: "Rebuild font cache"
   command: "fc-cache -f -v"
