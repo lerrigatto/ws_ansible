@@ -1,0 +1,8 @@
+sudo
+curl
+wget
+aptitude
+git
+python3-venv
+python3-dev
+unzip
