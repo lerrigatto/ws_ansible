@@ -9,7 +9,7 @@
       - firmware-intel-sound
       - intel-microcode
   become: yes
-  when: "inventory_hostname == 'polobeardeb'"
+  when: "inventory_hostname == 'polobeardeb' or inventory_hostname == 'debdellorso'"
   
 - name: "Install ti_3410.fw"
   copy:

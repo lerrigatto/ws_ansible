@@ -1,0 +1,11 @@
+---
+# This is a host-aware role. 
+
+- name: "Install wifi packages"
+  apt:
+    pkg:
+      - wicd
+      - wicd-gtk
+  become: yes
+  when: "inventory_hostname == 'debdellorso'"
+

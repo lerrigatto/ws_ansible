@@ -18,7 +18,12 @@
     - role: sshd
       tags: sshd
 
-- hosts: polobeardeb
+- hosts: debdellorso
+  roles:
+    - role: wifi
+      tags: base,network,wifi
+
+- hosts: polobeardeb, debdellorso
   roles:
     - role: firmware
       tags: base,firmware
