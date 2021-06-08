@@ -1,0 +1,19 @@
+---
+- name: "Install vim"
+  apt:
+    pkg:
+      - vim
+    state: present
+    install_recommends: no
+  become: yes
+
+- name: "Clean vim vundle"
+  file:
+    state: absent
+    path: "{{ vim_vundle_path }}"
+
+- name: "Install vim vundle"
+  command: "git clone {{ vim_vundle_repo }} {{ vim_vundle_path}}"
+
+- name: "Install vim vundle plugins"
+  command: "vim +PluginInstall +qall"

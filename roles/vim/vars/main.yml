@@ -1,0 +1,3 @@
+---
+vim_vundle_repo: "https://github.com/VundleVim/Vundle.vim.git"
+vim_vundle_path: "~/.vim/bundle/Vundle.vim"

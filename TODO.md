@@ -8,5 +8,4 @@
 - handle requirements (root)
   - curl, unzip, python3-distutils, python3-apt, sudo
   - usermod -aG sudo elacava
-- fix vim configs on servers (is it yadm?)
 - install fluxcd on workstations

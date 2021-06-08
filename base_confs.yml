@@ -11,6 +11,8 @@
       tags: keys
     - role: yadm
       tags: yadm
+    - role: vim
+      tags: vim
     - role: fish
       tags: fish
     - role: sshd

@@ -8,6 +8,7 @@ base_packages:
 - python3-venv
 - python3-dev
 - unzip
+- vim
 
 debian_release: "buster"
 username: "elacava"
