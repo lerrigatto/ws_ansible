@@ -12,5 +12,6 @@
       - j4-dmenu-desktop
       - libnotify-bin
       - dunst
+      - rofi
     state: present
   become: yes
