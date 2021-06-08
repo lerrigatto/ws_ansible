@@ -4,6 +4,8 @@ all:
   children:
     workstations:
       hosts:
+        debdellorso:
+          ansible_user: elacava
         polobeardeb:
           ansible_host: 192.168.1.52
           ansible_user: elacava
