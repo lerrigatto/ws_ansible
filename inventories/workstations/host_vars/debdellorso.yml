@@ -1,0 +1,7 @@
+---
+# Overrides of variables for debdellorso
+
+# netdev is necessary for wifi
+base_gruops:
+  - sudo
+  - netdev

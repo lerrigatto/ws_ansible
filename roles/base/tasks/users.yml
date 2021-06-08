@@ -1,0 +1,8 @@
+---
+
+- name: Add main user and groups
+  user: 
+    name: "{{ username }}"
+    groups: "{{ base_groups }}"
+    append: yes
+  become: yes
