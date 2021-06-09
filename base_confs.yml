@@ -22,6 +22,8 @@
   roles:
     - role: wifi
       tags: base,network,wifi
+    - role: 4k
+      tags: base, 4k
 
 - hosts: polobeardeb, debdellorso
   roles:
