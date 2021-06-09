@@ -5,8 +5,8 @@
   - ssh keys
   - google-ddns creds (servers)
   - wireguard confs and keys (servers)
-- handle requirements (root)
-  - curl, unzip, python3-distutils, python3-apt, sudo
-  - usermod -aG sudo elacava
 - install fluxcd on workstations
-- fix variables override for hosts
+- refactor roles to use defaults
+- check if servers still runs
+- improve bootstrap process
+
