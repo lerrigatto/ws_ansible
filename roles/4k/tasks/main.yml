@@ -1,0 +1,25 @@
+---
+
+- name: "Increase Grub fonts"
+  command: |
+    grub-mkfont --output=/boot/grub/fonts/DejaVuSansMono32.pf2 --size=32 /usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf
+  become: yes
+
+- name: "Add bigger font to grub conf"
+  command: |
+    echo -e "\nGRUB_FONT=/boot/grub/fonts/DejaVuSansMono32.pf2" | tee -a /etc/default/grub
+  become: yes
+
+- name: "Update GRUB"
+  command: update-grub
+  become: yes
+
+- name: "Change Kernel TTY fontface"
+  command: |
+    sed -i -e 's/^[[:space:]]*FONTFACE.*$/#\0\nFONTFACE="TER"/' /etc/default/console-setup
+  become: yes
+
+- name: "Increase Kernel TTY fonts"
+  command: |
+    sed -i -e 's/^[[:space:]]*FONTSIZE.*$/#\0\nFONTSIZE="16x32"/' /etc/default/console-setup
+  become: yes
