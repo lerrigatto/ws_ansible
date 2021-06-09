@@ -21,11 +21,11 @@
 - hosts: debdellorso
   roles:
     - role: wifi
-      tags: base,network,wifi
+      tags: network,wifi
     - role: 4k
-      tags: base, 4k
+      tags: 4k
 
 - hosts: polobeardeb, debdellorso
   roles:
     - role: firmware
-      tags: base,firmware
+      tags: firmware

@@ -1,6 +1,9 @@
 # Inventory file for all workstations
+
+#[workstations]
+#debdellorso ansible_user=elacava
+
 all:
-  hosts:
   children:
     workstations:
       hosts:
