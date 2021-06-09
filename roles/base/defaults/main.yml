@@ -12,6 +12,6 @@ base_packages:
 
 debian_release: "buster"
 username: "elacava"
-base_groups: 
-  - sudo
+#base_groups: 
+#  - sudo
 ssh_key_name: "id_ed25519"
