@@ -10,7 +10,15 @@
       - intel-microcode
   become: yes
   when: "inventory_hostname == 'polobeardeb' or inventory_hostname == 'debdellorso'"
-  
+
+- name: "Install firmware atheros"
+  apt:
+    pkg:
+      - firmware-atheros
+      - firmware-iwlwifi
+  become: yes
+  when: "inventory_hostname == 'debdellorso'"
+
 - name: "Install ti_3410.fw"
   copy:
     src: "ti_3410.fw"

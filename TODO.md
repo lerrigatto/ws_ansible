@@ -9,3 +9,4 @@
   - curl, unzip, python3-distutils, python3-apt, sudo
   - usermod -aG sudo elacava
 - install fluxcd on workstations
+- fix variables override for hosts
