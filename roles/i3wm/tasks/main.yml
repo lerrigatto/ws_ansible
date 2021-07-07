@@ -9,6 +9,7 @@
       - suckless-tools
       - sakura
       - desktop-profiles
+      - desktop-file-utils
       - j4-dmenu-desktop
       - libnotify-bin
       - dunst
