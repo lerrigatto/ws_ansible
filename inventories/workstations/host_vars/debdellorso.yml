@@ -4,3 +4,4 @@
 base_groups: 
   - sudo
   - netdev
+  - docker
