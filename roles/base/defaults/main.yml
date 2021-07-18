@@ -10,6 +10,7 @@ base_packages:
 - python3-dev
 - unzip
 - vim
+- dnsutils
 
 debian_release: "buster"
 username: "elacava"
