@@ -1,5 +1,6 @@
 ---
 base_packages:
+- acpi
 - sudo
 - curl
 - wget
