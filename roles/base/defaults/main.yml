@@ -11,6 +11,7 @@ base_packages:
 - unzip
 - vim
 - dnsutils
+- u2f-host
 
 debian_release: "buster"
 username: "elacava"
