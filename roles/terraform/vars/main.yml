@@ -1,0 +1,11 @@
+---
+
+terraform_version: "1.0.7"
+terraform_url: "https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip"
+terraform_sha256: "sha256:bc79e47649e2529049a356f9e60e06b47462bf6743534a10a4c16594f443be7b"
+terraform_dest_path: "/home/elacava/bin"
+
+tflint_version: "v0.32.1"
+tflint_url: "https://github.com/terraform-linters/tflint/releases/download/{{ tflint_version }}/tflint_linux_amd64.zip"
+tflint_sha256: "sha256:161a32da55672df11ac8eee94ef5eaecd9909ed817ee894f15f5aad4184c454a"
+tflint_dest_path: "/home/elacava/bin"

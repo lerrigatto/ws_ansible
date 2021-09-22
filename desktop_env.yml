@@ -57,3 +57,7 @@
       tags:
         - k8s
         - dev
+    - role: terraform
+      tags:
+        - terraform
+        - dev

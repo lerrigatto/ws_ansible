@@ -1,0 +1,32 @@
+---
+# Download and install tflint
+
+- name: "Create temporary installer folder"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: tflint_tmp_installer
+
+- name: "Download installer"
+  get_url:
+    url: "{{ tflint_url }}"
+    dest: "{{ tflint_tmp_installer.path }}/tf.zip"
+    checksum: "{{ tflint_sha256 }}"
+  become: yes
+
+- name: "Unzip tflint"
+  unarchive:
+    src: "{{ tflint_tmp_installer.path }}/tf.zip"
+    dest: "{{ tflint_tmp_installer.path }}"
+
+- name: "Install tflint"
+  copy:
+    src: "{{ tflint_tmp_installer.path }}/tflint"
+    dest: "{{ tflint_dest_path }}/tflint"
+    mode: a+x
+
+- name: "Delete temporary installer folder"
+  file:
+    path: "{{ tflint_tmp_installer.path }}"
+    state: absent
+  when: tflint_tmp_installer.path is defined

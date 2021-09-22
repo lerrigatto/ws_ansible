@@ -1,0 +1,4 @@
+---
+- include_tasks: terraform.yml
+- include_tasks: tflint.yml
+
