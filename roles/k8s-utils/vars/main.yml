@@ -1,5 +1,9 @@
 ---
 
-kubens_url: "https://raw.githubusercontent.com/ahmetb/kubectx/3504e66edbe51e1bcbb57cd02b2cf6972e9d501d/kubens"
+kubens_url: "https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubens"
 kubens_sha256: "sha256:509c97c0882e688ae8fad8aa13524cc7c003e4883db447a905bdb47d64c13bdc"
 kubens_dest_path: "/usr/local/bin"
+
+kubectx_url: "https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubectx"
+kubectx_sha256: "sha256:e887e4e2b3dd4c94d0ecdb84270fb4fac2e65c4d5b0ee461e688fb8089fd4900"
+kubectx_dest_path: "/usr/local/bin"

@@ -1,0 +1,28 @@
+---
+# Download and install kubectx
+
+- name: "Create temporary installer file"
+  tempfile:
+    state: file
+    suffix: temp
+  register: kubectx_tmp_installer
+
+- name: "Download installer"
+  get_url:
+    url: "{{ kubectx_url }}"
+    dest: "{{ kubectx_tmp_installer.path }}"
+    checksum: "{{ kubectx_sha256 }}"
+  become: yes
+
+- name: "Install kubectx"
+  copy:
+    src: "{{ kubectx_tmp_installer.path }}"
+    dest: "{{ kubectx_dest_path }}/kubectx"
+    mode: "a+x"
+  become: yes
+
+- name: "Delete temporary installer file"
+  file:
+    path: "{{ kubectx_tmp_installer.path }}"
+    state: absent
+  when: kubectx_tmp_installer.path is defined
