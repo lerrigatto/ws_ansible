@@ -33,6 +33,10 @@
       tags: 
         - apps
         - spotify
+    - role: clockify
+      tags:
+        - apps
+        - clockify
     - role: zoom
       tags:
         - apps

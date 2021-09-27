@@ -10,6 +10,7 @@
       - sakura
       - desktop-profiles
       - desktop-file-utils
+      - gconf-defaults-service
       - j4-dmenu-desktop
       - libnotify-bin
       - dunst
