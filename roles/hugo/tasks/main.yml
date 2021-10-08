@@ -1,0 +1,26 @@
+---
+# Download and install hugo
+
+- name: "Create temporary installer file"
+  tempfile:
+    state: file
+    suffix: temp
+  register: hugo_tmp_installer
+
+- name: "Download installer"
+  get_url:
+    url: "{{ hugo_url }}"
+    dest: "{{ hugo_tmp_installer.path }}"
+    checksum: "{{ hugo_sha256 }}"
+  become: yes
+
+- name: "Install hugo"
+  apt:
+    deb: "{{ hugo_tmp_installer.path }}"
+  become: yes
+
+- name: "Delete temporary installer file"
+  file:
+    path: "{{ hugo_tmp_installer.path }}"
+    state: absent
+  when: hugo_tmp_installer.path is defined

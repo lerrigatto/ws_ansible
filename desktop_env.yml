@@ -65,3 +65,7 @@
       tags:
         - terraform
         - dev
+    - role: hugo
+      tags:
+        - hugo
+        - dev
