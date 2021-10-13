@@ -12,6 +12,7 @@ base_packages:
 - vim
 - dnsutils
 - u2f-host
+- ack-grep
 
 debian_release: "buster"
 username: "elacava"
