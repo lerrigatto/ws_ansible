@@ -7,3 +7,7 @@ kubens_dest_path: "/usr/local/bin"
 kubectx_url: "https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubectx"
 kubectx_sha256: "sha256:e887e4e2b3dd4c94d0ecdb84270fb4fac2e65c4d5b0ee461e688fb8089fd4900"
 kubectx_dest_path: "/usr/local/bin"
+
+helm_url: "https://get.helm.sh/helm-v3.7.1-linux-amd64.tar.gz"
+helm_sha256: "sha256:6cd6cad4b97e10c33c978ff3ac97bb42b68f79766f1d2284cfd62ec04cd177f4"
+helm_dest_path: "/usr/local/bin"

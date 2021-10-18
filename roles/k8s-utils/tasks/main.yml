@@ -3,4 +3,4 @@
 - include_tasks: kubens.yml
 - include_tasks: kubectx.yml
 - include_tasks: cloud-sdk.yml
-
+- include_tasks: helm.yml

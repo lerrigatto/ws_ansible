@@ -1,0 +1,32 @@
+---
+# Install helm from tarball
+
+- name: "Create tmp folder"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: helm_tmp_folder
+
+- name: "Download helm"
+  get_url:
+    url: "{{ helm_url }}"
+    dest: "{{ helm_tmp_folder.path }}/helm.tar.gz"
+    checksum: "{{ helm_sha256 }}"
+
+- name: "Unpack helm"
+  unarchive:
+    src: "{{ helm_tmp_folder.path }}/helm.tar.gz"
+    dest: "{{ helm_tmp_folder.path}}"
+
+- name: "Install helm"
+  copy:
+    src: "{{ helm_tmp_folder.path }}/linux-amd64/helm"
+    dest: "{{ helm_dest_path }}/helm"
+    mode: "a+x"
+  become: yes
+
+- name: "Cleanup"
+  file:
+    path: "{{ helm_tmp_folder.path }}"
+    state: absent
+  when: helm_tmp_folder.path is defined
