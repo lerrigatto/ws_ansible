@@ -5,8 +5,14 @@
   - ssh keys
   - google-ddns creds (servers)
   - wireguard confs and keys (servers)
-- install fluxcd on workstations
 - refactor roles to use defaults
 - check if servers still runs
 - improve bootstrap process
 
+
+# CLEAN RUN TODO
+- No real working bootstrap
+- base: group docker doesn't exist
+- Asking ssh key every time, should move to http and install ssh env first
+- Missing contirb and non-free repos
+- Run apt upgrade at least once
