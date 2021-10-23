@@ -4,8 +4,8 @@
 - name: "Install wifi packages"
   apt:
     pkg:
-      - wicd
-      - wicd-gtk
+      - network-manager
+      - network-manager-gnome
   become: yes
   when: "inventory_hostname == 'debdellorso'"
 
