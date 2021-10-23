@@ -8,10 +8,12 @@
       - i3status
       - suckless-tools
       - sakura
-      - desktop-profiles
+      - menu
+      - menu-xdg
+      - xdg-dbus-proxy 
+      - xdg-user-dirs-gtk
       - desktop-file-utils
       - gconf-defaults-service
-      - j4-dmenu-desktop
       - libnotify-bin
       - dunst
       - rofi
