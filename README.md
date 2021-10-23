@@ -9,7 +9,7 @@
 - Workstations need to have the ssh key in the authorized_hosts
 
 ## Bootstrap
-If you have a clean debian install you need to do the following in order to run all this.
+If you have a clean debian 11 install you need to do the following in order to run all this.
 
 - apt update && apt install curl
 - apt install $(curl -L lerrigatto.dev/bootstrap/ansible)
