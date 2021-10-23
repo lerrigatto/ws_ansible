@@ -1,15 +1,8 @@
 ---
-- name: "Add backports repos to apt"
-  apt_repository:
-    repo: deb http://deb.debian.org/debian buster-backports main contrib non-free
-    state: present
-  become: yes
-
 - name: "Install polybar"
   apt:
     pkg: 
       - polybar
-    default_release: buster-backports
     state: present
     install_recommends: no
     update_cache: yes
