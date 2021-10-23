@@ -16,3 +16,5 @@
 - Asking ssh key every time, should move to http and install ssh env first
 - Missing contirb and non-free repos
 - Run apt upgrade at least once
+- update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/editor
+- remove nano
