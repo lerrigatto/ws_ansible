@@ -33,17 +33,13 @@
       tags: 
         - apps
         - spotify
-    - role: clockify
-      tags:
-        - apps
-        - clockify
     - role: zoom
       tags:
         - apps
         - zoom
     - role: packer
       tags:
-        - apps
+        - dev
         - packer
     - role: python
       tags:
