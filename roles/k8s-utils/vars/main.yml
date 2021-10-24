@@ -4,6 +4,10 @@ kubens_url: "https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubens"
 kubens_sha256: "sha256:509c97c0882e688ae8fad8aa13524cc7c003e4883db447a905bdb47d64c13bdc"
 kubens_dest_path: "/usr/local/bin"
 
+kustomize_url: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.4.0/kustomize_v4.4.0_linux_amd64.tar.gz"
+kustomize_sha256: "sha256:bf3a0d7409d9ce6a4a393ba61289047b4cb875a36ece1ec94b36924a9ccbaa0f"
+kustomize_dest_path: "/usr/local/bin"
+
 kubectx_url: "https://github.com/ahmetb/kubectx/releases/download/v0.9.4/kubectx"
 kubectx_sha256: "sha256:e887e4e2b3dd4c94d0ecdb84270fb4fac2e65c4d5b0ee461e688fb8089fd4900"
 kubectx_dest_path: "/usr/local/bin"

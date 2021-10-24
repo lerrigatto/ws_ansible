@@ -1,0 +1,32 @@
+---
+# Install kustomize from tarball
+
+- name: "Create tmp folder"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: kustomize_tmp_folder
+
+- name: "Download kustomize"
+  get_url:
+    url: "{{ kustomize_url }}"
+    dest: "{{ kustomize_tmp_folder.path }}/kustomize.tar.gz"
+    checksum: "{{ kustomize_sha256 }}"
+
+- name: "Unpack kustomize"
+  unarchive:
+    src: "{{ kustomize_tmp_folder.path }}/kustomize.tar.gz"
+    dest: "{{ kustomize_tmp_folder.path}}"
+
+- name: "Install kustomize"
+  copy:
+    src: "{{ kustomize_tmp_folder.path }}/kustomize"
+    dest: "{{ kustomize_dest_path }}/kustomize"
+    mode: "a+x"
+  become: yes
+
+- name: "Cleanup"
+  file:
+    path: "{{ kustomize_tmp_folder.path }}"
+    state: absent
+  when: kustomize_tmp_folder.path is defined
