@@ -13,6 +13,9 @@ base_packages:
 - dnsutils
 - u2f-host
 - ack-grep
+- tree
+- atop
+- htop
 
 debian_release: "buster"
 username: "elacava"
