@@ -69,3 +69,7 @@
       tags:
         - hugo
         - dev
+    - role: jetbrains
+      tags:
+        - jetbrains
+        - dev

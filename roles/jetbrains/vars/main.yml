@@ -1,0 +1,5 @@
+---
+
+jetbrains_url: "https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.21.9712.tar.gz"
+jetbrains_sha256: "sha256:fd35d02a14b28cb328e096cf6e4135b89adac11eb362ff807e28b7542ec14f98"
+jetbrains_dest_path: "/usr/local/bin"
