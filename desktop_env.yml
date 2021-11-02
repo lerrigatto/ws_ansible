@@ -45,6 +45,10 @@
       tags:
         - python
         - dev
+    - role: aws
+      tags:
+        - dev
+        - aws
     - role: elixir
       tags:
         - dev

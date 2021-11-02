@@ -1,0 +1,5 @@
+---
+
+awscli_url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
+awscli_sha256: "sha256:4a32a5f6e072c7cbdc0d9cd67171061d37fa3c8bd44c4f8fc945309581094a2c"
+awscli_dest_path: "/usr/local/bin"
