@@ -1,0 +1,28 @@
+---
+# Download and install aws-iam-authenticator
+
+- name: "Create temporary installer file"
+  tempfile:
+    state: file
+    suffix: temp
+  register: awsauth_tmp_installer
+
+- name: "Download installer"
+  get_url:
+    url: "{{ awsauth_url }}"
+    dest: "{{ awsauth_tmp_installer.path }}"
+    checksum: "{{ awsauth_sha256 }}"
+  become: yes
+
+- name: "Install aws-iam-authenticator"
+  copy:
+    src: "{{ awsauth_tmp_installer.path }}"
+    dest: "{{ awsauth_dest_path }}/aws-iam-authenticator"
+    mode: "a+x"
+  become: yes
+
+- name: "Delete temporary installer file"
+  file:
+    path: "{{ awsauth_tmp_installer.path }}"
+    state: absent
+  when: awsauth_tmp_installer.path is defined

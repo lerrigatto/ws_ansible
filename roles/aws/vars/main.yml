@@ -1,5 +1,9 @@
 ---
 
-awscli_url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
-awscli_sha256: "sha256:4a32a5f6e072c7cbdc0d9cd67171061d37fa3c8bd44c4f8fc945309581094a2c"
+awscli_url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.3.3.zip"
+awscli_sha256: "sha256:f444a11b9a06d27f336f2670e0b17a5e6f8efdc7c08fa9799f0dd031cad5042b"
 awscli_dest_path: "/usr/local/bin"
+
+awsauth_url: "https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/aws-iam-authenticator"
+awsauth_sha256: "sha256:fe958eff955bea1499015b45dc53392a33f737630efd841cd574559cc0f41800"
+awsauth_dest_path: "/usr/local/bin"
