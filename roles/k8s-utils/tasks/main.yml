@@ -6,3 +6,5 @@
 - include_tasks: kubectx.yml
 - include_tasks: cloud-sdk.yml
 - include_tasks: helm.yml
+- include_tasks: istio.yml
+

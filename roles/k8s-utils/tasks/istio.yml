@@ -1,0 +1,32 @@
+---
+# Install istio from tarball
+
+- name: "Create tmp folder"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: istio_tmp_folder
+
+- name: "Download istio"
+  get_url:
+    url: "{{ istio_url }}"
+    dest: "{{ istio_tmp_folder.path }}/istio.tar.gz"
+    checksum: "{{ istio_sha256 }}"
+
+- name: "Unpack istio"
+  unarchive:
+    src: "{{ istio_tmp_folder.path }}/istio.tar.gz"
+    dest: "{{ istio_tmp_folder.path}}"
+
+- name: "Install istio"
+  copy:
+    src: "{{ istio_tmp_folder.path }}/istioctl"
+    dest: "{{ istio_dest_path }}/istioctl"
+    mode: "a+x"
+  become: yes
+
+- name: "Cleanup"
+  file:
+    path: "{{ istio_tmp_folder.path }}"
+    state: absent
+  when: istio_tmp_folder.path is defined
