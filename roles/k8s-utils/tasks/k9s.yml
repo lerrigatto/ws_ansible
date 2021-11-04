@@ -1,0 +1,32 @@
+---
+# Install k9s from tarball
+
+- name: "Create tmp folder"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: k9s_tmp_folder
+
+- name: "Download k9s"
+  get_url:
+    url: "{{ k9s_url }}"
+    dest: "{{ k9s_tmp_folder.path }}/k9s.tar.gz"
+    checksum: "{{ k9s_sha256 }}"
+
+- name: "Unpack k9s"
+  unarchive:
+    src: "{{ k9s_tmp_folder.path }}/k9s.tar.gz"
+    dest: "{{ k9s_tmp_folder.path}}"
+
+- name: "Install k9s"
+  copy:
+    src: "{{ k9s_tmp_folder.path }}/k9s"
+    dest: "{{ k9s_dest_path }}/k9s"
+    mode: "a+x"
+  become: yes
+
+- name: "Cleanup"
+  file:
+    path: "{{ k9s_tmp_folder.path }}"
+    state: absent
+  when: k9s_tmp_folder.path is defined
