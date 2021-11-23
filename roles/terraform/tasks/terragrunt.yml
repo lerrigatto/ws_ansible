@@ -1,0 +1,28 @@
+---
+# Download and install terragrunt
+
+- name: "Create temporary installer file"
+  tempfile:
+    state: file
+    suffix: temp
+  register: terragrunt_tmp_installer
+
+- name: "Download installer"
+  get_url:
+    url: "{{ terragrunt_url }}"
+    dest: "{{ terragrunt_tmp_installer.path }}"
+    checksum: "{{ terragrunt_sha256 }}"
+  become: yes
+
+- name: "Install terragrunt"
+  copy:
+    src: "{{ terragrunt_tmp_installer.path }}"
+    dest: "{{ terragrunt_dest_path }}/terragrunt"
+    mode: "a+x"
+  become: yes
+
+- name: "Delete temporary installer file"
+  file:
+    path: "{{ terragrunt_tmp_installer.path }}"
+    state: absent
+  when: terragrunt_tmp_installer.path is defined
