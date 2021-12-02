@@ -9,7 +9,8 @@
   get_url: 
     url: "https://zoom.us/client/latest/zoom_amd64.deb"
     dest: "{{ zoom_tmp.path }}/zoom.deb"
-    checksum: "sha256:5eb11212db639aa74f16ad7e65f63e780376690585756cb2daaaca962aa8444c"
+# Skip checksum because there is no versioning and this shit changes every other day
+#    checksum: "sha256:5eb11212db639aa74f16ad7e65f63e780376690585756cb2daaaca962aa8444c"
 
 - name: "Install zoom dependencies"
   apt:
