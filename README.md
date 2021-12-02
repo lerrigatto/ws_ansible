@@ -11,13 +11,13 @@
 ## Bootstrap
 If you have a clean debian 11 install you need to do the following in order to run all this.
 
-- apt update && apt install curl
-- apt install $(curl -L lerrigatto.dev/bootstrap/ansible)
+- apt update && apt install git
+- git clone https://github.com/lerrigatto/ws_ansible.git
 - /sbin/usermod elacava -G sudo
-- get bitwarden CLI https://bitwarden.com/help/article/cli/
-- get ssh keys from bwcli
-- git clone git@github.com:lerrigatto/ws_ansible.git
+- apt install $(cat bootstrap)
 - run install.sh
+- ./run_desktop.sh "--connection=local -t bitwarden"
+- run get-install-key
 - run run_desktop.sh "--connection=local"
 
 Known issues of this process

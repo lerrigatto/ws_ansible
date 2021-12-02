@@ -7,6 +7,8 @@
   roles:
     - role: base
       tags: base
+    - role: bitwarden
+      tags: bitwarden
     - role: keys
       tags: keys
     - role: yadm
