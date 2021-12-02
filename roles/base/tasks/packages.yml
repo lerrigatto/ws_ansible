@@ -5,6 +5,11 @@
     state: present
   become: yes
 
+- name: Update and upgrade apt packages
+  apt:
+    upgrade: yes
+  become: yes
+
 - name: "install base packages"
   apt:
     pkg: "{{ item }}"
