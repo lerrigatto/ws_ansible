@@ -2,4 +2,5 @@
 - include_tasks: terraform.yml
 - include_tasks: terragrunt.yml
 - include_tasks: tflint.yml
+- include_tasks: terraform-docs.yml
 

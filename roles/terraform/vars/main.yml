@@ -10,6 +10,11 @@ tflint_url: "https://github.com/terraform-linters/tflint/releases/download/{{ tf
 tflint_sha256: "sha256:161a32da55672df11ac8eee94ef5eaecd9909ed817ee894f15f5aad4184c454a"
 tflint_dest_path: "/home/elacava/bin"
 
+terraform_docs_version: "v0.16.0"
+terraform_docs_url: "https://github.com/terraform-docs/terraform-docs/releases/download/{{ terraform_docs_version }}/terraform-docs-{{ terraform_docs_version }}-linux-amd64.tar.gz"
+terraform_docs_sha256: "sha256:328c16cd6552b3b5c4686b8d945a2e2e18d2b8145b6b66129cd5491840010182"
+terraform_docs_dest_path: "/home/elacava/bin"
+
 terragrunt_version: "0.35.12"
 terragrunt_url: "https://github.com/gruntwork-io/terragrunt/releases/download/v{{ terragrunt_version }}/terragrunt_linux_amd64"
 terragrunt_sha256: "sha256:ee54fc62e64ee9a73e34267883cdc3e459b0ec6e6b57f51032e9778c52756491"

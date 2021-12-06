@@ -1,0 +1,32 @@
+---
+# Download and install terraform_docs
+
+- name: "Create temporary installer folder"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: terraform_docs_tmp_installer
+
+- name: "Download installer"
+  get_url:
+    url: "{{ terraform_docs_url }}"
+    dest: "{{ terraform_docs_tmp_installer.path }}/tf.tar.gz"
+    checksum: "{{ terraform_docs_sha256 }}"
+  become: yes
+
+- name: "Unzip terraform_docs"
+  unarchive:
+    src: "{{ terraform_docs_tmp_installer.path }}/tf.tar.gz"
+    dest: "{{ terraform_docs_tmp_installer.path }}"
+
+- name: "Install terraform_docs"
+  copy:
+    src: "{{ terraform_docs_tmp_installer.path }}/terraform-docs"
+    dest: "{{ terraform_docs_dest_path }}/terraform-docs"
+    mode: a+x
+
+- name: "Delete temporary installer folder"
+  file:
+    path: "{{ terraform_docs_tmp_installer.path }}"
+    state: absent
+  when: terraform_docs_tmp_installer.path is defined
