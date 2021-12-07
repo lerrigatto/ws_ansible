@@ -33,6 +33,10 @@
       tags: 
         - apps
         - spotify
+    - role: telegram
+      tags:
+        - apps
+        - telegram
     - role: zoom
       tags:
         - apps

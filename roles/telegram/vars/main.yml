@@ -1,0 +1,5 @@
+---
+
+telegram_url: "https://github.com/telegramdesktop/tdesktop/releases/download/v3.2.5/tsetup.3.2.5.tar.xz"
+telegram_sha256: "sha256:82015812f6334bd5c8ee56204a946cf0a27344e48ce9f44bff87d0dc3f84ef03"
+telegram_dest_path: "/usr/local/bin"
