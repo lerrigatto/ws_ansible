@@ -1,5 +1,5 @@
 ---
-firefox_version: "93.0"
+firefox_version: "94.0.2"
 firefox_filename: "firefox-{{ firefox_version }}.tar.bz2"
 firefox_version_string: "Mozilla Firefox {{ firefox_version }}"
 firefox_url: "https://ftp.mozilla.org/pub/firefox/releases/{{ firefox_version }}/linux-x86_64/en-US/{{ firefox_filename }}"
