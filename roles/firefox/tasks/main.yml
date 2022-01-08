@@ -40,12 +40,6 @@
     remote_src: yes
   become: yes
 
-- name: "Add desktop file"
-  template:
-    src: firefox.desktop.j2
-    dest: "{{ firefox_desktop_path }}/firefox.desktop"
-  become: yes
-
 - name: "Add firefox as x-www-browser"
   command: "update-alternatives --install /usr/bin/x-www-browser x-www-browser /opt/firefox/firefox 200"
   become: yes
