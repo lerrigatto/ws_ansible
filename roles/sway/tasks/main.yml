@@ -1,0 +1,27 @@
+---
+- name: "Install sway packages"
+  apt:
+    pkg:
+        - sway
+        - swaybg
+        - swayidle
+        - wofi
+        - xwayland
+        - xcb
+#      - i3-wm
+#      - i3lock
+#      - i3lock-fancy
+#      - i3status
+#      - suckless-tools
+#      - sakura
+#      - menu
+#      - menu-xdg
+#      - xdg-dbus-proxy 
+#      - xdg-user-dirs-gtk
+#      - desktop-file-utils
+#      - gconf-defaults-service
+#      - libnotify-bin
+#      - dunst
+#      - rofi
+    state: present
+  become: yes
