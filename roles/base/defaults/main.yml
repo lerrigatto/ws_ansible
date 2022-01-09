@@ -1,6 +1,7 @@
 ---
 base_packages:
 - acpi
+- grub-theme-breeze
 - sudo
 - curl
 - wget
