@@ -18,5 +18,13 @@
   lineinfile:
     path: "/etc/lightdm/lightdm-gtk-greeter.conf"
     regexp: '^background='
-    line: "background=/usr/share/images/backgrounds/parmitano.jpg"
+    line: "background = /usr/share/images/backgrounds/parmitano.jpg"
+  become: yes
+
+- name: "Set slick greeter background"
+  copy:
+    dest: "/etc/lightdm/slick-greeter.conf"
+    content: |
+      [Greeter]
+      background = /usr/share/images/backgrounds/parmitano.jpg
   become: yes

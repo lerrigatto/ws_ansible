@@ -3,6 +3,7 @@
   apt:
     pkg:
       - pulseaudio
+      - pavucontrol
     state: present
   become: true
 

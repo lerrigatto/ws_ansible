@@ -9,20 +9,18 @@
         - xwayland
         - xcb
         - waybar
-#      - i3-wm
-#      - i3lock
-#      - i3lock-fancy
-#      - i3status
-#      - suckless-tools
-#      - sakura
-#      - menu
-#      - menu-xdg
-#      - xdg-dbus-proxy 
-#      - xdg-user-dirs-gtk
-#      - desktop-file-utils
-#      - gconf-defaults-service
-#      - libnotify-bin
-#      - dunst
-#      - rofi
+        - grimshot
+        - brightnessctl
+        - brightness-udev
+        - sakura
+        - flameshot
+        - xdg-dbus-proxy 
+        - xdg-user-dirs-gtk
+        - xdg-desktop-portal
+        - xdg-desktop-portal-wlr
+        - grim
+        - desktop-file-utils
+        - gconf-defaults-service
+        - libnotify-bin
     state: present
   become: yes
