@@ -8,11 +8,21 @@
   ignore_unreachable: yes
   roles:
     - role: X11
-      tags: X11
+      tags: 
+        - X11
+        - desktop
+    - role: lightdm
+      tags: 
+        - lightdm
+        - desktop
     - role: sway
-      tags: sway
+      tags: 
+        - sway
+        - desktop
     - role: fonts
-      tags: fonts
+      tags: 
+        - fonts
+        - desktop
     - role: sound
       tags: sound
     - role: firefox
