@@ -1,0 +1,24 @@
+---
+- name: "Create tmp folder"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: swaylock_tmp
+
+- name: "Download swaylock (it's in sid right now)"
+  get_url: 
+    url: "http://ftp.fr.debian.org/debian/pool/main/s/swaylock/swaylock_1.5-2+b1_amd64.deb"
+    dest: "{{ swaylock_tmp.path }}/swaylock_1.5-2+b1_amd64.deb"
+    checksum: "sha256:6c177d65733b42c0b7a6e680007500441ad517674e45c1da1a68980f8dfc5e1b"
+
+- name: "Install swaylock"
+  apt:
+    deb: "{{ swaylock_tmp.path }}/swaylock_1.5-2+b1_amd64.deb"
+    state: present
+  become: true
+
+- name: "Cleanup"
+  file:
+    path: "{{ swaylock_tmp }}"
+    state: absent
+

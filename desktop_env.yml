@@ -9,14 +9,8 @@
   roles:
     - role: X11
       tags: X11
-    - role: lightdm
-      tags: lightdm
-    - role: i3wm
-      tags: i3wm
-    - role: polybar
-      tags:
-        - i3wm
-        - polybar
+    - role: sway
+      tags: sway
     - role: fonts
       tags: fonts
     - role: sound
