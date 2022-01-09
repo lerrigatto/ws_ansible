@@ -10,10 +10,10 @@
         - xcb
         - waybar
         - grimshot
+        - slurp
         - brightnessctl
         - brightness-udev
         - sakura
-        - flameshot
         - xdg-dbus-proxy 
         - xdg-user-dirs-gtk
         - xdg-desktop-portal
