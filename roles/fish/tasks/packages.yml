@@ -4,5 +4,6 @@
     pkg:
       - fish
       - fish-common
+      - zoxide
     state: present
   become: yes
