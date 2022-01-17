@@ -1,10 +1,11 @@
 ---
-- include_tasks: k9s.yml
-- include_tasks: kubectl.yml
-- include_tasks: kubens.yml
-- include_tasks: kustomize.yml
-- include_tasks: kubectx.yml
-- include_tasks: cloud-sdk.yml
-- include_tasks: helm.yml
-- include_tasks: istio.yml
+# - include_tasks: k9s.yml
+# - include_tasks: kubectl.yml
+# - include_tasks: kubens.yml
+# - include_tasks: kustomize.yml
+# - include_tasks: kubectx.yml
+# - include_tasks: cloud-sdk.yml
+# - include_tasks: helm.yml
+# - include_tasks: istio.yml
+- include_tasks: chart-testing.yml
 

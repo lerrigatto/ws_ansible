@@ -20,6 +20,10 @@ helm_url: "https://get.helm.sh/helm-v3.7.1-linux-amd64.tar.gz"
 helm_sha256: "sha256:6cd6cad4b97e10c33c978ff3ac97bb42b68f79766f1d2284cfd62ec04cd177f4"
 helm_dest_path: "/usr/local/bin"
 
+ct_url: "https://github.com/helm/chart-testing/releases/download/v3.5.0/chart-testing_3.5.0_linux_amd64.tar.gz "
+ct_sha256: "sha256:fdfe8bdf21b336ba99984520baa7e432e9c7b0769729d1da581959a5ecdc72e1"
+ct_dest_path: "/usr/local/bin"
+
 istio_url: "https://github.com/istio/istio/releases/download/1.11.4/istioctl-1.11.4-linux-amd64.tar.gz"
 istio_sha256: "sha256:27b17e6ec916f8f4b2b4e9a88533bc25b50d247f90e314d600dd72f30f0347a8"
 istio_dest_path: "/usr/local/bin"

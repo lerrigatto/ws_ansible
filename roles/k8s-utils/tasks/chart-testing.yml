@@ -1,0 +1,42 @@
+---
+# Install ct from tarball
+
+- name: Install yamale python package
+  pip:
+    name: yamale
+  become: true
+
+- name: Install yamllint package
+  apt:
+    name: yamllint
+  become: true
+
+- name: "Create tmp folder"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: ct_tmp_folder
+
+- name: "Download ct"
+  get_url:
+    url: "{{ ct_url }}"
+    dest: "{{ ct_tmp_folder.path }}/ct.tar.gz"
+    checksum: "{{ ct_sha256 }}"
+
+- name: "Unpack ct"
+  unarchive:
+    src: "{{ ct_tmp_folder.path }}/ct.tar.gz"
+    dest: "{{ ct_tmp_folder.path}}"
+
+- name: "Install ct"
+  copy:
+    src: "{{ ct_tmp_folder.path }}/ct"
+    dest: "{{ ct_dest_path }}/ct"
+    mode: "a+x"
+  become: yes
+
+- name: "Cleanup"
+  file:
+    path: "{{ ct_tmp_folder.path }}"
+    state: absent
+  when: ct_tmp_folder.path is defined
