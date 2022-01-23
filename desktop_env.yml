@@ -81,3 +81,7 @@
       tags:
         - jetbrains
         - dev
+    - role: teleport
+      tags:
+        - teleport
+        - dev

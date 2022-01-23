@@ -1,0 +1,5 @@
+---
+
+teleport_version: "8.1.0"
+teleport_url: "https://get.gravitational.com/teleport_{{ teleport_version }}_amd64.deb"
+teleport_sha256: "sha256:d13510f5eaa1ed96d466ca378eca56a04bf3d2c224a45c99385a95ae0f03cd0f"

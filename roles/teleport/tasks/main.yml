@@ -1,0 +1,26 @@
+---
+# Download and install teleport
+
+- name: "Create temporary installer file"
+  tempfile:
+    state: file
+    suffix: temp
+  register: teleport_tmp_installer
+
+- name: "Download installer"
+  get_url:
+    url: "{{ teleport_url }}"
+    dest: "{{ teleport_tmp_installer.path }}"
+    checksum: "{{ teleport_sha256 }}"
+  become: yes
+
+- name: "Install teleport"
+  apt:
+    deb: "{{ teleport_tmp_installer.path }}"
+  become: yes
+
+- name: "Delete temporary installer file"
+  file:
+    path: "{{ teleport_tmp_installer.path }}"
+    state: absent
+  when: teleport_tmp_installer.path is defined
