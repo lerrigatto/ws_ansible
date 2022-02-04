@@ -15,9 +15,10 @@
       tags: 
         - lightdm
         - desktop
-    - role: sway
+    - role: i3wm
       tags: 
-        - sway
+        - i3
+        - i3wm
         - desktop
     - role: fonts
       tags: 

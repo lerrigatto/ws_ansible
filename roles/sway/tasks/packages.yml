@@ -21,8 +21,12 @@
         - grim
         - desktop-file-utils
         - gconf-defaults-service
+        - gphoto2
         - libnotify-bin
         - libavdevice-dev
+        - mpd
+        - playerctl
+        - libplayerctl-dev
         - v4l2loobpack-utils
         - v4l2loobpack-dkms
     state: present
