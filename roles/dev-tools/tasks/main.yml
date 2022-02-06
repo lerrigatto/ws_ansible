@@ -1,0 +1,12 @@
+---
+- name: "Install bunch of utils"
+  apt:
+    pkg: 
+      - ack-grep
+      - hub
+      - git
+      - moreutils
+      - httpie
+    state: present
+    install_recommends: no
+  become: yes

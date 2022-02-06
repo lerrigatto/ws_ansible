@@ -15,11 +15,9 @@ base_packages:
 - vim
 - dnsutils
 - u2f-host
-- ack-grep
 - tree
 - atop
 - htop
-- moreutils
 
 debian_release: "buster"
 username: "elacava"

@@ -69,6 +69,7 @@
     - role: k8s-utils
       tags:
         - k8s
+        - k8s-utils
         - dev
     - role: terraform
       tags:
@@ -81,6 +82,10 @@
     - role: jetbrains
       tags:
         - jetbrains
+        - dev
+    - role: dev-tools
+      tags:
+        - dev-tools
         - dev
     - role: teleport
       tags:
