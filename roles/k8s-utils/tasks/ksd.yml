@@ -1,0 +1,32 @@
+---
+# Install ksd from tarball
+
+- name: "Create tmp folder"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: ksd_tmp_folder
+
+- name: "Download ksd"
+  get_url:
+    url: "{{ ksd_url }}"
+    dest: "{{ ksd_tmp_folder.path }}/ksd.tar.gz"
+    checksum: "{{ ksd_sha256 }}"
+
+- name: "Unpack ksd"
+  unarchive:
+    src: "{{ ksd_tmp_folder.path }}/ksd.tar.gz"
+    dest: "{{ ksd_tmp_folder.path}}"
+
+- name: "Install ksd"
+  copy:
+    src: "{{ ksd_tmp_folder.path }}/ksd"
+    dest: "{{ ksd_dest_path }}/ksd"
+    mode: "a+x"
+  become: yes
+
+- name: "Cleanup"
+  file:
+    path: "{{ ksd_tmp_folder.path }}"
+    state: absent
+  when: ksd_tmp_folder.path is defined
