@@ -19,6 +19,7 @@ base_packages:
 - tree
 - atop
 - htop
+- moreutils
 
 debian_release: "buster"
 username: "elacava"
