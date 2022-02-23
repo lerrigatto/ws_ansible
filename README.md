@@ -1,6 +1,25 @@
 # Workstation ansible
 
-## Prerequisites
+## Installation
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/lerrigatto/ws_ansible/switch_to_mac/install.sh)"
+ ```
+
+## Apple
+### Bootstrap
+
+You should be able to run [install.sh](install.sh) and skip this section.
+
+1. Install xcode `xcode-select --install`
+2. Install ansible:
+   1.Run the following command to add Python 3 to your $PATH: `export PATH="$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$PATH"`
+   2. Upgrade Pip: `sudo pip3 install --upgrade pip` 
+   3. Install Ansible: `pip3 install ansible`
+3. Run ansible galaxy: `ansible-galaxy install -r requirements.yml`
+4. Run `./run_desktop.sh`
+
+
+## Linux
 ### Keys
 - You need to add an ssh key in your user home folder.
 - The ssh key you provide must be able to connect to github.com
@@ -11,19 +30,15 @@
 ## Bootstrap
 If you have a clean debian 11 install you need to do the following in order to run all this.
 
-- apt update && apt install git
+- apt update && apt install git sudo
 - git clone https://github.com/lerrigatto/ws_ansible.git
 - /sbin/usermod elacava -G sudo
-- apt install $(cat bootstrap)
 - run install.sh
 - ./run_desktop.sh "--connection=local -t bitwarden"
 - run get-install-key
 - run run_desktop.sh "--connection=local"
 
 Known issues of this process
-- good luck getting the bitwarden CLI
-- even more luck getting the keys from bwcli
-- .local/bin not in path (install.sh)
 - ansible req python 3.8 (got 3.7)
 - must log ansible to file
 

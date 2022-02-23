@@ -1,8 +1,12 @@
 #!/bin/bash
 
-ANSIBLE_NOCOWS=1 $HOME/.local/bin/ansible-playbook \
+OS="$(uname)"
+
+ANSIBLE_PLAYBOOK=$(which ansible-playbook)
+
+ANSIBLE_NOCOWS=1 "$ANSIBLE_PLAYBOOK" \
   -i inventories/workstations \
-  --limit $(hostname) \
-  desktop_env.yml \
+  --limit "$(hostname)" \
+  "desktop_${OS}.yml" \
   -v \
   --ask-become-pass $1
