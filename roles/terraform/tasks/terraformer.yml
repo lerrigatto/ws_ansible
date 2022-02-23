@@ -1,0 +1,28 @@
+---
+# Download and install terraformer
+
+- name: "terraformer: Create temporary installer file"
+  tempfile:
+    state: file
+    suffix: temp
+  register: terraformer_tmp_installer
+
+- name: "terraformer: Download installer"
+  get_url:
+    url: "{{ terraformer_url }}"
+    dest: "{{ terraformer_tmp_installer.path }}"
+    checksum: "{{ terraformer_sha256 }}"
+  become: yes
+
+- name: "terraformer: Install terraformer"
+  copy:
+    src: "{{ terraformer_tmp_installer.path }}"
+    dest: "{{ terraformer_dest_path }}/terraformer"
+    mode: "a+x"
+  become: yes
+
+- name: "terraformer: Delete temporary installer file"
+  file:
+    path: "{{ terraformer_tmp_installer.path }}"
+    state: absent
+  when: terraformer_tmp_installer.path is defined

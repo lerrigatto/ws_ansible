@@ -15,6 +15,11 @@ terraform_docs_url: "https://github.com/terraform-docs/terraform-docs/releases/d
 terraform_docs_sha256: "sha256:328c16cd6552b3b5c4686b8d945a2e2e18d2b8145b6b66129cd5491840010182"
 terraform_docs_dest_path: "/home/elacava/bin"
 
+terraformer_version: "0.8.18"
+terraformer_url: "https://github.com/GoogleCloudPlatform/terraformer/releases/download/{{ terraformer_version }}/terraformer-all-linux-amd64"
+terraformer_sha256: "sha256:a014d63b5f80aa64148bda0db5335b5db87be9e679b82c1827b02679f4f3b514"
+terraformer_dest_path: "/home/elacava/bin"
+
 terragrunt_version: "0.35.12"
 terragrunt_url: "https://github.com/gruntwork-io/terragrunt/releases/download/v{{ terragrunt_version }}/terragrunt_linux_amd64"
 terragrunt_sha256: "sha256:ee54fc62e64ee9a73e34267883cdc3e459b0ec6e6b57f51032e9778c52756491"
