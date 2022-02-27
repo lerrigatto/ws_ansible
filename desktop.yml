@@ -1,5 +1,5 @@
 ---
-# Playbook: desktop environment for Mac
+# Playbook: desktop environment for Debian and Mac
 
 - import_playbook: base_confs.yml
 

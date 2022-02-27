@@ -18,3 +18,10 @@
 - Run apt upgrade at least once
 - update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/editor
 - remove nano
+
+# Mac install list
+## MAS
+- bitwarden
+
+## HB
+- gpg-suite
