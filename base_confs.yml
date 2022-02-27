@@ -4,21 +4,35 @@
 
 - hosts: all 
   ignore_unreachable: yes
+
+  pre_tasks:
+    - name: Set OS facts
+      set_fact: OS="Darwin"
+
+    - name: Test OS
+      debug:
+        msg: "THE OS IS {{OS}}"
+
+    - name: Ansible Facts
+      debug:
+        msg: "{{ ansible_facts }}"
+
   roles:
     - role: base
       tags: base
-    - role: bitwarden
-      tags: bitwarden
-    - role: keys
-      tags: keys
-    - role: yadm
-      tags: yadm
-    - role: vim
-      tags: vim
-    - role: fish
-      tags: fish
-    - role: sshd
-      tags: sshd
+      when: OS == 'Linux"
+#    - role: bitwarden
+#      tags: bitwarden
+#    - role: keys
+#      tags: keys
+#    - role: yadm
+#      tags: yadm
+#    - role: vim
+#      tags: vim
+#    - role: fish
+#      tags: fish
+#    - role: sshd
+#      tags: sshd
 
 - hosts: debdellorso
   roles:

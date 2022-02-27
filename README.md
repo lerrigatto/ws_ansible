@@ -1,8 +1,10 @@
 # Workstation ansible
 
 ## Installation
+You need to have bash, sudo, git, curl installed to run the script.
+
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/lerrigatto/ws_ansible/switch_to_mac/install.sh)"
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/lerrigatto/ws_ansible/switch_to_mac/install.sh)"`
  ```
 
 ## Apple

@@ -1,0 +1,105 @@
+---
+# Playbook: desktop environment for Mac
+
+- import_playbook: base_confs.yml
+
+- hosts: workstations
+  ignore_unreachable: yes
+
+  pre_tasks:
+    - name: Set OS facts
+      set_fact: OS="Darwin"
+
+    - name: Test OS
+      debug:
+        msg: "THE OS IS {{OS}}"
+
+    - name: Ansible Facts
+      debug:
+        msg: "{{ ansible_facts }}"
+
+#  roles:
+##    - role: X11
+##      tags:
+##        - X11
+##        - desktop
+##    - role: lightdm
+##      tags:
+##        - lightdm
+##        - desktop
+##    - role: i3wm
+##      tags:
+##        - i3
+##        - i3wm
+##        - desktop
+##    - role: fonts
+##      tags:
+##        - fonts
+##        - desktop
+##    - role: sound
+##      tags: sound
+#    - role: firefox
+#      tags:
+#        - apps
+#        - firefox
+#    - role: slack
+#      tags:
+#        - apps
+#        - slack
+#    - role: spotify
+#      tags:
+#        - apps
+#        - spotify
+#    - role: telegram
+#      tags:
+#        - apps
+#        - telegram
+#    - role: zoom
+#      tags:
+#        - apps
+#        - zoom
+#    - role: packer
+#      tags:
+#        - dev
+#        - packer
+#    - role: python
+#      tags:
+#        - python
+#        - dev
+#    - role: aws
+#      tags:
+#        - dev
+#        - aws
+#    - role: elixir
+#      tags:
+#        - dev
+#        - elixir
+#    - role: docker
+#      tags:
+#        - docker
+#        - dev
+#    - role: k8s-utils
+#      tags:
+#        - k8s
+#        - k8s-utils
+#        - dev
+#    - role: terraform
+#      tags:
+#        - terraform
+#        - dev
+#    - role: hugo
+#      tags:
+#        - hugo
+#        - dev
+#    - role: jetbrains
+#      tags:
+#        - jetbrains
+#        - dev
+#    - role: dev-tools
+#      tags:
+#        - dev-tools
+#        - dev
+#    - role: teleport
+#      tags:
+#        - teleport
+#        - dev
