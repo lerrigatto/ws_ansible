@@ -1,13 +1,14 @@
 ---
 # Install SSH packages, confs and ensure keys are present and working
 
-- name: "Install ssh client"
+- name: "Install ssh client [Debian]"
   apt:
     pkg:
       - openssh-client
     state: present
     install_recommends: no
   become: yes
+  when: ansible_facts['os_family'] == "Debian"
 
 - name: "Configure ssh client"
   template:
@@ -16,19 +17,21 @@
     mode: 0644
   become: yes
 
-- name: "Ensure ssh private key is present"
-  stat:
-    path: "{{ keys_ssh_private_path }}"
-  register: privatekey
-  failed_when: not privatekey.stat.exists
+# Not so sure if this code is necessary
 
-- name: "Ensure ssh public key is present"
-  stat:
-    path: "{{ keys_ssh_public_path }}"
-  register: publickey
-  failed_when: not publickey.stat.exists
-
-- name: "Test github.com connection"
-  command: "ssh -T git@github.com"
-  register: ssh_github_check
-  failed_when: "'successfully authenticated' not in ssh_github_check.stderr"
+#- name: "Ensure ssh private key is present"
+#  stat:
+#    path: "{{ keys_ssh_private_path }}"
+#  register: privatekey
+#  failed_when: not privatekey.stat.exists
+#
+#- name: "Ensure ssh public key is present"
+#  stat:
+#    path: "{{ keys_ssh_public_path }}"
+#  register: publickey
+#  failed_when: not publickey.stat.exists
+#
+#- name: "Test github.com connection"
+#  command: "ssh -T git@github.com"
+#  register: ssh_github_check
+#  failed_when: "'successfully authenticated' not in ssh_github_check.stderr"
