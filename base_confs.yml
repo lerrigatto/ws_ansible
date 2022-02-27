@@ -15,8 +15,9 @@
     - role: geerlingguy.mac.homebrew
       tags: homebrew
       when: ansible_facts['os_family'] == "Darwin"
-#    - role: bitwarden
-#      tags: bitwarden
+    - role: bitwarden
+      tags: bitwarden
+      when: ansible_facts['os_family'] == "Debian"
 #    - role: keys
 #      tags: keys
 #    - role: yadm
