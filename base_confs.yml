@@ -5,22 +5,16 @@
 - hosts: all 
   ignore_unreachable: yes
 
-  pre_tasks:
-    - name: Set OS facts
-      set_fact: OS="Darwin"
-
-    - name: Test OS
-      debug:
-        msg: "THE OS IS {{OS}}"
-
-    - name: Ansible Facts
-      debug:
-        msg: "{{ ansible_facts }}"
-
   roles:
     - role: base
       tags: base
-      when: OS == 'Linux"
+      when: ansible_facts['os_family'] == "Debian"
+    - role: elliotweiser.osx-command-line-tools
+      tags: osx-cli
+      when: ansible_facts['os_family'] == "Darwin"
+    - role: geerlingguy.mac.homebrew
+      tags: homebrew
+      when: ansible_facts['os_family'] == "Darwin"
 #    - role: bitwarden
 #      tags: bitwarden
 #    - role: keys
