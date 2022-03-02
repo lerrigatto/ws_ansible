@@ -15,7 +15,6 @@ all:
         pinkladydeb:
           ansible_host: 192.168.1.23
           ansible_user: elacava
-        3de742e6-ed6d-4cad-bd15-2d53c522c571.local:
-        # Hostname of Arancino m1 vm
+        Melorso.local:
           ansible_host: 127.0.0.1
           ansible_connection: local

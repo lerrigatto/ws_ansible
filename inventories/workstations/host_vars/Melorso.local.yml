@@ -1,0 +1,9 @@
+---
+homebrew_installed_packages:
+  - wget
+  - curl
+  - git
+  - unzip
+  - vim
+  - tree
+  - htop
