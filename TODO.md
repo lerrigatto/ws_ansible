@@ -19,9 +19,5 @@
 - update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/editor
 - remove nano
 
-# Mac install list
-## MAS
-- bitwarden
-
-## HB
-- gpg-suite
+# MAC
+- install https://github.com/koekeishiya/yabai

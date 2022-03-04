@@ -16,6 +16,6 @@ if [[ ! $(bw sync) ]]; then
 fi
 
 echo "Getting keys from Bitwarden"
-bw get username ${BW_ITEM_ID} > ${SSH_PUB_DEST}
-bw get password ${BW_ITEM_ID} | base64 -id > ${SSH_PVT_DEST}
+bw get username "${BW_ITEM_ID}" > "${SSH_PUB_DEST}"
+bw get password "${BW_ITEM_ID}" | base64 -d > "${SSH_PVT_DEST}"
 
