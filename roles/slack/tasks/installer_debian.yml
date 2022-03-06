@@ -1,0 +1,48 @@
+---
+- name: "Create tmp folder"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: slack_tmp
+
+- name: "Download libindicator3-7 (slack might fix this in the future)"
+  get_url: 
+    url: "http://ftp.fr.debian.org/debian/pool/main/libi/libindicator/libindicator3-7_0.5.0-4_amd64.deb"
+    dest: "{{ slack_tmp.path }}/libindicator3-7_0.5.0-4_amd64.deb"
+    checksum: "sha256:82d90abe8d768d9c8c60cb38cb87a5843f4dcda537f41b80d571a774e09c11ff"
+
+- name: "Install libindicator3-7"
+  apt:
+    deb: "{{ slack_tmp.path }}/libindicator3-7_0.5.0-4_amd64.deb" 
+    state: present
+  become: true
+
+- name: "Download libappindicator3-1 (slack might fix this in the future)"
+  get_url: 
+    url: "http://ftp.fr.debian.org/debian/pool/main/liba/libappindicator/libappindicator3-1_0.4.92-7_amd64.deb"
+    dest: "{{ slack_tmp.path }}/libappindicator3-1_0.4.92-7_amd64.deb"
+    checksum: "sha256:591f86e5d732c223911c9246c4384758565a801575ea466631f752a6a7b9c89c"
+
+- name: "Install libappindicator3-1"
+  apt:
+    deb: "{{ slack_tmp.path }}/libappindicator3-1_0.4.92-7_amd64.deb" 
+    state: present
+  become: true
+
+- name: "Download slack"
+  get_url: 
+    url: "https://downloads.slack-edge.com/releases/linux/4.20.0/prod/x64/slack-desktop-4.20.0-amd64.deb"
+    dest: "{{ slack_tmp.path }}/slack.deb"
+    checksum: "sha256:b08207389246837536ea769425d458411c08dc6802ffaae9249092e387461ce5"
+
+- name: "Install slack"
+  apt:
+    deb: "{{ slack_tmp.path }}/slack.deb"
+    state: present
+  become: true
+
+- name: "Cleanup"
+  file:
+    path: "{{ slack_tmp }}"
+    state: absent
+

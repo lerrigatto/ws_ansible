@@ -1,62 +1,7 @@
 ---
-# Install firefox from tarball
 
-- name: "Check current firefox version"
-  command: "firefox --version"
-  register: current_firefox
-  ignore_errors: yes
+- include_tasks: installer_darwin.yml
+  when: ansible_facts['os_family'] == "Darwin"
 
-- name: "Avoid downgrading"
-  fail:
-    msg: "You are trying to install a different version of firefox from {{ current_firefox.stdout }} to {{ firefox_version_string }}. This cannot happen. Please update the role with the same version or uninstall firefox"
-  when: "current_firefox.stdout is defined and current_firefox.stdout|length > 0 and firefox_version_string != current_firefox.stdout"
-
-- name: "Create tmp folder"
-  tempfile:
-    state: directory
-    suffix: temp
-  register: firefox_tmp_folder
-
-- name: "Download firefox"
-  get_url:
-    url: "{{ firefox_url }}"
-    dest: "{{ firefox_tmp_folder.path }}/{{ firefox_filename }}"
-
-- name: "Download key"
-  get_url:
-    url: " {{firefox_key_url }}"
-    dest: "{{ firefox_tmp_folder.path }}/{{ firefox_filename }}.asc"
-
-- name: "Import firefox public key"
-  command: gpg --import  "{{ role_path}}/files/mozilla.gpg"
-
-- name: "Checksum"
-  command: gpg --verify "{{ firefox_tmp_folder.path }}/{{ firefox_filename }}.asc" "{{ firefox_tmp_folder.path }}/{{ firefox_filename }}"
-
-- name: "Unpack firefox"
-  unarchive:
-    src: "{{ firefox_tmp_folder.path }}/{{ firefox_filename }}"
-    dest: "/opt/"
-    remote_src: yes
-  become: yes
-
-- name: "Add firefox as x-www-browser"
-  command: "update-alternatives --install /usr/bin/x-www-browser x-www-browser /opt/firefox/firefox 200"
-  become: yes
-
-- name: "Add firefox as default browser"
-  command: "update-alternatives --set x-www-browser /opt/firefox/firefox"
-  become: yes
-
-- name: "Add firefox to path"
-  file:
-    src: /opt/firefox/firefox
-    dest: /usr/local/bin/firefox
-    state: link
-  become: yes
-
-- name: "Cleanup"
-  file:
-    path: "{{ firefox_tmp_folder.path }}"
-    state: absent
-  when: firefox_tmp_folder.path is defined
+- include_tasks: installer_debian.yml
+  when: ansible_facts['os_family'] == "Debian"

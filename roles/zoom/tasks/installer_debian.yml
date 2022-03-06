@@ -1,0 +1,33 @@
+---
+- name: "Create tmp folder"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: zoom_tmp
+
+- name: "Download zoom"
+  get_url: 
+    url: "https://zoom.us/client/latest/zoom_amd64.deb"
+    dest: "{{ zoom_tmp.path }}/zoom.deb"
+# Skip checksum because there is no versioning and this shit changes every other day
+#    checksum: "sha256:5eb11212db639aa74f16ad7e65f63e780376690585756cb2daaaca962aa8444c"
+
+- name: "Install zoom dependencies"
+  apt:
+    name: 
+    - xdg-dbus-proxy
+    - xdg-user-dirs-gtk
+    state: present
+  become: true
+
+- name: "Install zoom package"
+  apt:
+    deb: "{{ zoom_tmp.path }}/zoom.deb"
+    state: present
+  become: true
+
+- name: "Cleanup"
+  file:
+    path: "{{ zoom_tmp }}"
+    state: absent
+

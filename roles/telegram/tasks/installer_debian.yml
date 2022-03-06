@@ -1,0 +1,32 @@
+---
+# Install telegram from tarball
+
+- name: "Create tmp folder"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: telegram_tmp_folder
+
+- name: "Download telegram"
+  get_url:
+    url: "{{ telegram_url }}"
+    dest: "{{ telegram_tmp_folder.path }}/telegram.tar.xz"
+    checksum: "{{ telegram_sha256 }}"
+
+- name: "Unpack telegram"
+  unarchive:
+    src: "{{ telegram_tmp_folder.path }}/telegram.tar.xz"
+    dest: "{{ telegram_tmp_folder.path}}"
+
+- name: "Install telegram"
+  copy:
+    src: "{{ telegram_tmp_folder.path }}/Telegram/Telegram"
+    dest: "{{ telegram_dest_path }}/telegram"
+    mode: "a+x"
+  become: yes
+
+- name: "Cleanup"
+  file:
+    path: "{{ telegram_tmp_folder.path }}"
+    state: absent
+  when: telegram_tmp_folder.path is defined
