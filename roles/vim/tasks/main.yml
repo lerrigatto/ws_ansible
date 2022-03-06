@@ -6,6 +6,16 @@
     state: present
     install_recommends: no
   become: yes
+  when: ansible_facts['os_family'] == "Debian"
+
+
+- name: "Install vim"
+  community.general.homebrew:
+    name:
+      - vim
+    state: latest
+    update_homebrew: yes
+  when: ansible_facts['os_family'] == "Darwin"
 
 - name: "Clean vim vundle"
   file:

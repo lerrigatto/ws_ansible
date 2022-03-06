@@ -1,0 +1,16 @@
+---
+
+- name: "install bitwarden cli"
+  community.general.homebrew:
+    name:
+      - bitwarden-cli
+    state: latest
+    update_homebrew: yes
+
+- name: "install bitwarden"
+  community.general.homebrew_cask:
+    name:
+      - bitwarden
+    state: latest
+    update_homebrew: yes
+

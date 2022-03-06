@@ -1,7 +1,7 @@
 ---
 
-omf_url: "https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/5b9c4b4b68650b1c1034f9a61da56331a74fff36/bin/install"
+omf_url: "https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install"
 omf_sha256: "sha256:bb1f4025934600ea6feef2ec11660e17e2b6449c5a23c033860aed712ad328c9"
 
-starship_url: "https://raw.githubusercontent.com/starship/starship/d1b2723033b247854166a0506a160e9ff62ec822/install/install.sh"
-starship_sha256: "sha256:547965e3d5cf545d8bd3254ba341a056cf2304b39136fe0d4416b5cbaa90ce8c"
+starship_url: "https://raw.githubusercontent.com/starship/starship/a84a3af0025d350eac69adf5170eba2699657a65/install/install.sh"
+starship_sha256: "sha256:71c335931b0e694e8bde66e6e7242a47c73a2c92c3fad98eeff7ae5413184c38."

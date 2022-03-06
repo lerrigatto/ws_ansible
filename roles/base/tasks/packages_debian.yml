@@ -15,5 +15,5 @@
     pkg: "{{ item }}"
     state: present
     install_recommends: no
-  loop: "{{ base_packages }}"
+  loop: "{{ base_packages_debian }}"
   become: yes

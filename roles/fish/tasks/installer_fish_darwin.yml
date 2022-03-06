@@ -1,0 +1,19 @@
+---
+- name: "Install fish"
+  community.general.homebrew:
+    name:
+      - fish
+      - zoxide
+      - starship
+    state: latest
+    update_homebrew: yes
+
+- name: Locate fish
+  command: "which fish"
+  register: fish_location
+
+- name: "Set fish as default shell"
+  user:
+    name: "{{ ansible_user_id }}"
+    shell: "{{ fish_location.stdout }}"
+  become: yes

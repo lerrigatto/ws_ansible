@@ -1,4 +1,14 @@
 ---
-bitwarden_url: "https://github.com/bitwarden/cli/releases/download/v1.19.1/bw-linux-1.19.1.zip" 
-bitwarden_sha256: "sha256:2087A1CD4EBF7A00004A9242540554B021C64BBB22F73D79C93DC9A81C833516"
-bitwarden_dest_path: "/usr/local/bin"
+Debian:
+  bitwarden_url: "https://github.com/bitwarden/cli/releases/download/v1.19.1/bw-linux-1.19.1.zip"
+  bitwarden_sha256: "sha256:2087A1CD4EBF7A00004A9242540554B021C64BBB22F73D79C93DC9A81C833516"
+  bitwarden_dest_path: "/usr/local/bin"
+
+Darwin:
+  bitwarden_url: "https://github.com/bitwarden/cli/releases/download/v1.19.1/bw-linux-1.19.1.zip"
+  bitwarden_sha256: "sha256:2087A1CD4EBF7A00004A9242540554B021C64BBB22F73D79C93DC9A81C833516"
+  bitwarden_dest_path: "/usr/local/bin"
+
+bitwarden_url: "{{ ansible_facts['os_family']['bitwarden_url']}}"
+bitwarden_sha256: "{{ ansible_facts['os_family']['bitwarden_sha256']}}"
+bitwarden_dest_path: "{{ ansible_facts['os_family']['bitwarden_dest_path']}}"

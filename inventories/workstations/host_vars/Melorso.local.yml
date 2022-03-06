@@ -7,7 +7,10 @@ homebrew_installed_packages:
   - vim
   - tree
   - htop
-  - bitwarden-cli
+  - gh
+  - jq
+  - awscli
+  - kubectl
 
 homebrew_taps:
   - homebrew/core
@@ -16,7 +19,6 @@ homebrew_taps:
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - docker
-  - bitwarden
   - slack
   - telegram
   - firefox

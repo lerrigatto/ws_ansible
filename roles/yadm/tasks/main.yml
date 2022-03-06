@@ -6,6 +6,16 @@
     state: present
     install_recommends: no
   become: yes
+  when: ansible_facts['os_family'] == "Debian"
+
+
+- name: "install yadm"
+  community.general.homebrew:
+    name:
+      - yadm
+    state: latest
+    update_homebrew: yes
+  when: ansible_facts['os_family'] == "Darwin"
 
 - name: "Yadm clone"
   command: "yadm clone -f {{ yadm_repo_url }}"

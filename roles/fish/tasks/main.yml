@@ -1,4 +1,11 @@
 ---
-- include_tasks: fish.yml
-- include_tasks: omf.yml
+
+- include_tasks: installer_fish_darwin.yml
+  when: ansible_facts['os_family'] == "Darwin"
+
+- include_tasks: installer_fish_debian.yml
+  when: ansible_facts['os_family'] == "Debian"
 - include_tasks: starship.yml
+  when: ansible_facts['os_family'] == "Debian"
+
+- include_tasks: omf.yml

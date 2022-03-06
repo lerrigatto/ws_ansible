@@ -6,26 +6,21 @@
   ignore_unreachable: yes
 
   roles:
+    - role: elliotweiser.osx-command-line-tools
+      tags: base
+      when: ansible_facts['os_family'] == "Darwin"
     - role: base
       tags: base
-      when: ansible_facts['os_family'] == "Debian"
-    - role: elliotweiser.osx-command-line-tools
-      tags: osx-cli
-      when: ansible_facts['os_family'] == "Darwin"
-    - role: geerlingguy.mac.homebrew
-      tags: homebrew
-      when: ansible_facts['os_family'] == "Darwin"
     - role: bitwarden
       tags: bitwarden
-      when: ansible_facts['os_family'] == "Debian"
-#    - role: keys
-#      tags: keys
-#    - role: yadm
-#      tags: yadm
-#    - role: vim
-#      tags: vim
-#    - role: fish
-#      tags: fish
+    - role: keys
+      tags: keys
+    - role: yadm
+      tags: yadm
+    - role: vim
+      tags: vim
+    - role: fish
+      tags: fish
 #    - role: sshd
 #      tags: sshd
 
@@ -40,3 +35,9 @@
   roles:
     - role: firmware
       tags: firmware
+
+- hosts: Melorso
+  tasks:
+    - name: "Enable locate db"
+      command: "launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist"
+      become: yes

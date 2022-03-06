@@ -1,0 +1,32 @@
+---
+# Install bitwarden from tarball
+
+- name: "Create tmp folder"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: bitwarden_tmp_folder
+
+- name: "Download bitwarden"
+  get_url:
+    url: "{{ bitwarden_url }}"
+    dest: "{{ bitwarden_tmp_folder.path }}/bitwarden.zip"
+    checksum: "{{ bitwarden_sha256 }}"
+
+- name: "Unpack bitwarden"
+  unarchive:
+    src: "{{ bitwarden_tmp_folder.path }}/bitwarden.zip"
+    dest: "{{ bitwarden_tmp_folder.path}}"
+
+- name: "Install bitwarden"
+  copy:
+    src: "{{ bitwarden_tmp_folder.path }}/bw"
+    dest: "{{ bitwarden_dest_path }}/bw"
+    mode: "a+x"
+  become: yes
+
+- name: "Cleanup"
+  file:
+    path: "{{ bitwarden_tmp_folder.path }}"
+    state: absent
+  when: bitwarden_tmp_folder.path is defined

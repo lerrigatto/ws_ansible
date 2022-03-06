@@ -8,7 +8,10 @@
 - refactor roles to use defaults
 - check if servers still runs
 - improve bootstrap process
-
+- get all git repos I need. Check this:
+```shell
+gh repo list $ORGNAME --json url | jq '.[]|.url' | xargs -n1 git clone
+```
 
 # CLEAN RUN TODO
 - No real working bootstrap
@@ -21,3 +24,5 @@
 
 # MAC
 - install https://github.com/koekeishiya/yabai
+- install brew tap hashicorp/tap
+- enable locate   sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist

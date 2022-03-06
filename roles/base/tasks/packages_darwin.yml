@@ -1,0 +1,9 @@
+---
+
+- name: "install base packages"
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: latest
+    update_homebrew: yes
+  loop: "{{ base_packages_darwin }}"
+

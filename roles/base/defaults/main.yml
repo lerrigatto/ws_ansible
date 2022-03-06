@@ -1,5 +1,5 @@
 ---
-base_packages:
+base_packages_debian:
 - acpi
 - grub-theme-breeze
 - sudo
@@ -18,6 +18,20 @@ base_packages:
 - tree
 - atop
 - htop
+
+base_packages_darwin:
+  - wget
+  - curl
+  - git
+  - unzip
+  - vim
+  - tree
+  - htop
+#  - bitwarden-cli
+  - gh
+  - jq
+#  - awscli
+#  - kubectl
 
 debian_release: "buster"
 username: "elacava"
