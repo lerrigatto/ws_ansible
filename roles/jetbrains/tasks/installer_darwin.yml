@@ -1,0 +1,9 @@
+---
+
+- name: "install aws packages"
+  community.general.homebrew_cask:
+    name:
+      - jetbrains-toolbox
+    state: latest
+    update_homebrew: yes
+

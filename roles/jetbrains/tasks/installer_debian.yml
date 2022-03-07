@@ -1,0 +1,33 @@
+---
+# Install jetbrains from tarball
+
+- name: "Create tmp folder"
+  tempfile:
+    state: directory
+    suffix: temp
+  register: jetbrains_tmp_folder
+
+- name: "Download jetbrains"
+  get_url:
+    url: "{{ jetbrains_url }}"
+    dest: "{{ jetbrains_tmp_folder.path }}/jetbrains.tar.gz"
+    checksum: "{{ jetbrains_sha256 }}"
+
+- name: "Unpack jetbrains"
+  unarchive:
+    src: "{{ jetbrains_tmp_folder.path }}/jetbrains.tar.gz"
+    dest: "{{ jetbrains_tmp_folder.path}}"
+    extra_opts: [--strip-components=1]
+
+- name: "Install jetbrains"
+  copy:
+    src: "{{ jetbrains_tmp_folder.path }}/jetbrains-toolbox"
+    dest: "{{ jetbrains_dest_path }}/jetbrains-toolbox"
+    mode: "a+x"
+  become: yes
+
+- name: "Cleanup"
+  file:
+    path: "{{ jetbrains_tmp_folder.path }}"
+    state: absent
+  when: jetbrains_tmp_folder.path is defined

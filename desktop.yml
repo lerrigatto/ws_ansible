@@ -79,10 +79,10 @@
 #      tags:
 #        - hugo
 #        - dev
-#    - role: jetbrains
-#      tags:
-#        - jetbrains
-#        - dev
+    - role: jetbrains
+      tags:
+        - jetbrains
+        - dev
 #    - role: dev-tools
 #      tags:
 #        - dev-tools
