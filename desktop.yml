@@ -62,10 +62,10 @@
 #      tags:
 #        - dev
 #        - elixir
-#    - role: docker
-#      tags:
-#        - docker
-#        - dev
+    - role: docker
+      tags:
+        - docker
+        - dev
 #    - role: k8s-utils
 #      tags:
 #        - k8s

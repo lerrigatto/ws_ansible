@@ -1,0 +1,10 @@
+---
+
+- name: "install aws packages"
+  community.general.homebrew:
+    name:
+      - docker
+      - docker-compose
+    state: latest
+    update_homebrew: yes
+
