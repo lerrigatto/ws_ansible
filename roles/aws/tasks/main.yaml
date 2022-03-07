@@ -1,3 +1,8 @@
 ---
 - include_tasks: awscli.yaml
+  when: ansible_facts['os_family'] == "Debian"
 - include_tasks: awsauth.yaml
+  when: ansible_facts['os_family'] == "Debian"
+
+- include_tasks: installer_darwin.yml
+  when: ansible_facts['os_family'] == "Darwin"

@@ -1,0 +1,10 @@
+---
+
+- name: "install aws packages"
+  community.general.homebrew:
+    name:
+      - awscli
+      - aws-iam-authenticator
+    state: latest
+    update_homebrew: yes
+
